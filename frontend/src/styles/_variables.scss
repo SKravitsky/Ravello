@@ -1,0 +1,51 @@
+/* Fonts */
+$font-primary: var(--font-primary), sans-serif;
+$font-secondary: var(--font-secondary), sans-serif;
+
+/* Dimensions */
+$header-height: 48px;
+$max-width: 1400px;
+$min-main-height: 600px;
+
+/* Breakpoints */
+$breakpoint-sm: 600px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+/* Colors */
+$black: #000000;
+$white: #ffffff;
+$light-grey: #f3f3f3;
+$medium-grey: #dadada;
+$medium-dark-grey: #c2c2c2;
+$dark-grey: #aaaaaa;
+$dark-purple: #442f48;
+$light-purple: #c5adc9;
+$light-pink: #ffb6c1;
+$dark-pink: #ff687e;
+$burnt-orange: #ea7e5d;
+$teal: #50c1af;
+$light-teal: #c4eae4;
+$cream: #FFEFDD;
+
+/* Shadows */
+$light-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+
+/* Borders */
+$border-transparent: 1px solid transparent;
+$border-primary: 1px solid $black;
+$border-primary-thick: 2px solid $black;
+$border-secondary: 1px solid $light-grey;
+$border-radius-5: 5px;
+$border-radius-10: 10px;
+
+/* Backgrounds */
+$background-primary: $cream;
+$background-secondary: $white;
+$background-overlay: rgba(0, 0, 0, 0.25);
+
+/* Transitions */
+$transition-fade:
+    visibility 0.25s ease-in-out,
+    opacity 0.25s ease-in-out;

@@ -1,0 +1,9 @@
+@use "@/styles/variables" as variables;
+
+.header {
+   height: variables.$header-height;
+}
+
+.content {
+    width: 100%;
+}

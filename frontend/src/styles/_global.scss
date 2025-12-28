@@ -1,0 +1,15 @@
+@use "./variables" as variables;
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: variables.$font-primary;
+    background-color: variables.$background-primary;
+}
+
+hr {
+    width: 100%;
+}
