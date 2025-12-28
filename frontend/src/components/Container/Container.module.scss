@@ -1,0 +1,19 @@
+@use "@/styles/variables" as variables;
+@use "@/styles/mixins" as mixins;
+
+.containerWrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: variables.$max-width;
+    border: variables.$border-primary;
+    border-radius: variables.$border-radius-5;
+    @include mixins.global-margin-x-sm;
+    @include mixins.global-padding-x-sm;
+    @include mixins.global-padding-y-top;
+    @include mixins.global-padding-y-bottom;
+}

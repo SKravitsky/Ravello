@@ -1,0 +1,5 @@
+@use "@/styles/mixins" as mixins;
+
+.logo {
+    @include mixins.global-margin-y-bottom;
+}

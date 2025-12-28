@@ -1,0 +1,101 @@
+@use "@/styles/variables" as variables;
+
+/* Spacing */
+@mixin global-margin-x-sm {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+@mixin global-margin-x-md {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+}
+
+@mixin global-margin-x-lg {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+@mixin global-margin-y-top {
+    margin-top: 1rem;
+}
+
+@mixin global-margin-y-bottom {
+    margin-bottom: 1rem;
+}
+
+@mixin global-padding-x-sm {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@mixin global-padding-x-md {
+    padding-left: 1.25rem;
+    padding-right: 0.75rem;
+}
+
+@mixin global-padding-x-lg {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+@mixin global-padding-y-top {
+    padding-top: 1rem;
+}
+
+@mixin global-padding-y-bottom {
+    padding-bottom: 1rem;
+}
+
+/* Typography */
+@mixin txt-h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: variables.$font-primary;
+}
+
+@mixin txt-h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: variables.$font-primary;
+}
+
+@mixin txt-h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: variables.$font-primary;
+}
+
+@mixin txt-h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: none;
+    font-family: variables.$font-primary;
+}
+
+@mixin txt-body-1 {
+    font-family: variables.$font-secondary;
+    font-size: 1.25rem;
+}
+
+@mixin txt-body-2 {
+    font-family: variables.$font-secondary;
+    font-size: 1rem;
+}
+
+@mixin txt-caption {
+    font-family: variables.$font-secondary;
+    font-size: 0.5rem;
+}
+
+@mixin txt-link {
+    text-transform: uppercase;
+    font-family: variables.$font-secondary;
+    font-size: 1rem;
+    text-decoration: none;
+    color: variables.$black;
+    letter-spacing: 2px;
+}
