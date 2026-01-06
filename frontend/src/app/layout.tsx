@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Parisienne } from "next/font/google";
 import "@/styles/main.scss";
 import styles from "./layout.module.scss";
+import PasswordProtection from "@/components/PasswordProtection/PasswordProtection";
 
 const fontPrimary = Parisienne({
     variable: "--font-primary",
@@ -28,8 +29,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${fontPrimary.variable} ${fontSecondary.variable}`}>
-                <div className={styles.header}></div>
-                <div className={styles.content}>{children}</div>
+                <PasswordProtection>
+                    <div className={styles.header}></div>
+                    <div className={styles.content}>{children}</div>
+                </PasswordProtection>
             </body>
         </html>
     );
