@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.scss";
 import Container from "@/components/Container/Container";
+import RSVPButton from "@/components/RSVPButton/RSVPButton";
 
 export default function Home() {
     return (
@@ -15,6 +16,7 @@ export default function Home() {
                         priority
                     />
                     <h1>To get started, edit the page.tsx file.</h1>
+                    <RSVPButton />
                 </Container>
             </main>
     );

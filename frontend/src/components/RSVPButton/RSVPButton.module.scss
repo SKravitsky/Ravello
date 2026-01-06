@@ -1,0 +1,25 @@
+@use '../../styles/variables' as vars;
+
+.button {
+    padding: 1rem 2.5rem;
+    background: vars.$dark-purple;
+    color: vars.$white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.125rem;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    letter-spacing: 0.05em;
+
+    &:hover {
+        background: lighten(vars.$dark-purple, 10%);
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        background: darken(vars.$dark-purple, 5%);
+        transform: translateY(0);
+    }
+}
