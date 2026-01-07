@@ -1,0 +1,182 @@
+@use '../../styles/variables' as vars;
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: vars.$header-height;
+    background: rgba(255, 239, 221, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(218, 218, 218, 0.5);
+}
+
+.navContent {
+    max-width: vars.$max-width;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+// Desktop Navigation
+.desktopNav {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    gap: 2rem;
+
+    @media (min-width: vars.$breakpoint-md) {
+        display: flex;
+    }
+}
+
+.navLink {
+    color: vars.$dark-purple;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+    white-space: nowrap;
+
+    &:hover {
+        color: lighten(vars.$dark-purple, 20%);
+    }
+}
+
+.rsvpButton {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+}
+
+// Mobile Hamburger Button
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    position: absolute;
+    right: 1rem;
+    z-index: 1002;
+
+    @media (min-width: vars.$breakpoint-md) {
+        display: none;
+    }
+}
+
+.hamburgerLine {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: vars.$dark-purple;
+    transition: transform 0.3s, opacity 0.3s;
+
+    &.open {
+        &:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        &:nth-child(2) {
+            opacity: 0;
+        }
+
+        &:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+    }
+}
+
+// Mobile Overlay
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: vars.$background-overlay;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: vars.$transition-fade;
+
+    @media (max-width: calc(vars.$breakpoint-md - 1px)) {
+        display: block;
+
+        &.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+// Mobile Drawer
+.drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    max-width: 80vw;
+    height: 100vh;
+    background: vars.$cream;
+    z-index: 1001;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    padding: calc(vars.$header-height + 1rem) 1.5rem 1.5rem;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+
+    &.open {
+        transform: translateX(0);
+    }
+
+    @media (min-width: vars.$breakpoint-md) {
+        display: none;
+    }
+}
+
+.drawerNav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.drawerLink {
+    display: block;
+    color: vars.$dark-purple;
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid vars.$medium-grey;
+    transition: color 0.2s;
+
+    &:hover {
+        color: lighten(vars.$dark-purple, 20%);
+    }
+}
+
+.drawerRsvp {
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+}
+
+.rsvpButtonMobile {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
