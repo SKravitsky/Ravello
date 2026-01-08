@@ -1,0 +1,145 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mixins;
+
+.faqContainer {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faqList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.faqItem {
+    background: vars.$white;
+    border-radius: vars.$border-radius-10;
+    border: 1px solid vars.$medium-grey;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+        box-shadow: vars.$light-shadow;
+    }
+
+    &.open {
+        border-color: vars.$dark-purple;
+
+        .faqIcon svg line:first-child {
+            transform: rotate(90deg);
+            opacity: 0;
+        }
+    }
+}
+
+.faqQuestion {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: vars.$font-primary;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: vars.$dark-purple;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: rgba(197, 173, 201, 0.1);
+    }
+
+    @media (min-width: vars.$breakpoint-md) {
+        font-size: 1.25rem;
+    }
+}
+
+.faqIcon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    color: vars.$dark-purple;
+
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    svg line {
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        transform-origin: center;
+    }
+}
+
+.faqAnswer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+
+    .faqItem.open & {
+        max-height: 500px;
+    }
+
+    p {
+        @include mixins.txt-body-1;
+        color: vars.$dark-grey;
+        margin: 0;
+        padding: 0 1.5rem 1.5rem;
+    }
+}
+
+.contactBox {
+    background: vars.$dark-purple;
+    color: vars.$white;
+    border-radius: vars.$border-radius-10;
+    padding: 2rem;
+    text-align: center;
+
+    h3 {
+        font-family: vars.$font-primary;
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin: 0 0 0.5rem;
+    }
+
+    p {
+        font-family: vars.$font-secondary;
+        font-size: 1rem;
+        font-weight: 300;
+        opacity: 0.9;
+        margin: 0 0 1.5rem;
+    }
+}
+
+.contactButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: vars.$white;
+    color: vars.$dark-purple;
+    font-family: vars.$font-secondary;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: vars.$border-radius-5;
+    transition: background 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+        background: vars.$light-purple;
+        transform: translateY(-2px);
+    }
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+}

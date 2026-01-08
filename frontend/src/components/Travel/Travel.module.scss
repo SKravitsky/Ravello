@@ -1,0 +1,202 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mixins;
+
+.travelContainer {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.sectionTitle {
+    @include mixins.txt-h3;
+    color: vars.$dark-purple;
+    text-align: center;
+    margin: 0 0 2rem;
+}
+
+.airportsSection {
+    margin-bottom: 4rem;
+}
+
+.airportsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    @media (min-width: vars.$breakpoint-md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.airportCard {
+    background: vars.$white;
+    border-radius: vars.$border-radius-10;
+    padding: 1.5rem;
+    border: 1px solid vars.$medium-grey;
+    position: relative;
+
+    &.recommended {
+        border-color: vars.$dark-purple;
+        box-shadow: 0 0 0 1px vars.$dark-purple;
+    }
+}
+
+.recommendedBadge {
+    position: absolute;
+    top: -10px;
+    right: 1rem;
+    background: vars.$dark-purple;
+    color: vars.$white;
+    font-family: vars.$font-secondary;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+}
+
+.airportName {
+    @include mixins.txt-h4;
+    color: vars.$dark-purple;
+    margin: 0 0 0.5rem;
+}
+
+.airportDistance {
+    font-family: vars.$font-secondary;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: vars.$burnt-orange;
+    margin: 0 0 0.75rem;
+}
+
+.airportDescription {
+    @include mixins.txt-body-2;
+    color: vars.$dark-grey;
+    margin: 0;
+}
+
+.transportSection {
+    margin-bottom: 4rem;
+}
+
+.transportGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    @media (min-width: vars.$breakpoint-md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: vars.$breakpoint-lg) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.transportCard {
+    background: vars.$white;
+    border-radius: vars.$border-radius-10;
+    padding: 1.5rem;
+    border: 1px solid vars.$medium-grey;
+    text-align: center;
+}
+
+.transportIcon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 1rem;
+    color: vars.$dark-purple;
+
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.transportTitle {
+    @include mixins.txt-h4;
+    color: vars.$dark-purple;
+    margin: 0 0 0.75rem;
+}
+
+.transportDescription {
+    @include mixins.txt-body-2;
+    color: vars.$dark-grey;
+    margin: 0 0 1rem;
+    font-size: 0.9rem;
+}
+
+.transportPrice {
+    font-family: vars.$font-secondary;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: vars.$black;
+    margin: 0 0 0.5rem;
+}
+
+.transportRecommendation {
+    font-family: vars.$font-secondary;
+    font-size: 0.8rem;
+    color: vars.$burnt-orange;
+    margin: 0;
+    font-style: italic;
+}
+
+.tipsSection {
+    background: vars.$white;
+    border-radius: vars.$border-radius-10;
+    padding: 2rem;
+    border: 1px solid vars.$medium-grey;
+}
+
+.tipsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    @media (min-width: vars.$breakpoint-md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: vars.$breakpoint-lg) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.tipCard {
+    text-align: center;
+    padding: 1rem;
+}
+
+.tipIcon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 1rem;
+    color: vars.$dark-purple;
+    background: vars.$light-purple;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.tipCard h4 {
+    font-family: vars.$font-primary;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: vars.$dark-purple;
+    margin: 0 0 0.5rem;
+}
+
+.tipCard p {
+    @include mixins.txt-body-2;
+    color: vars.$dark-grey;
+    margin: 0;
+    font-size: 0.875rem;
+}

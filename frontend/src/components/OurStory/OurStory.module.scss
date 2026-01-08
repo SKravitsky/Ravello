@@ -1,0 +1,154 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mixins;
+
+.storyContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.storyGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+
+    @media (min-width: vars.$breakpoint-lg) {
+        grid-template-columns: 1fr 1.2fr;
+        gap: 4rem;
+        align-items: start;
+    }
+}
+
+.imageColumn {
+    display: flex;
+    justify-content: center;
+}
+
+.imageWrapper {
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        right: -1rem;
+        bottom: -1rem;
+        border: 2px solid vars.$light-purple;
+        z-index: 0;
+    }
+}
+
+.storyImage {
+    position: relative;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    z-index: 1;
+    box-shadow: vars.$light-shadow;
+}
+
+.textColumn {
+    display: flex;
+    align-items: center;
+}
+
+.storyContent {
+    width: 100%;
+}
+
+.chapterTitle {
+    @include mixins.txt-h3;
+    color: vars.$dark-purple;
+    margin: 0 0 1rem;
+    font-style: italic;
+
+    &:not(:first-child) {
+        margin-top: 2rem;
+    }
+}
+
+.storyText {
+    @include mixins.txt-body-1;
+    color: vars.$black;
+    margin: 0;
+    line-height: 1.8;
+}
+
+.timeline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 0;
+    border-top: 1px solid vars.$medium-grey;
+
+    @media (min-width: vars.$breakpoint-md) {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 0;
+    }
+}
+
+.timelineItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 0 0 calc(50% - 0.5rem);
+    position: relative;
+
+    @media (min-width: vars.$breakpoint-md) {
+        flex: 1;
+
+        &:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: calc(50% + 20px);
+            right: calc(-50% + 20px);
+            height: 2px;
+            background: linear-gradient(to right, vars.$light-purple, vars.$dark-purple);
+            transform: translateY(-0.5rem);
+        }
+    }
+}
+
+.timelineDate {
+    @include mixins.txt-caption;
+    color: vars.$dark-grey;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.timelineDot {
+    width: 12px;
+    height: 12px;
+    background: vars.$dark-purple;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: -4px;
+        border: 2px solid vars.$light-purple;
+        border-radius: 50%;
+    }
+}
+
+.timelineLabel {
+    font-family: vars.$font-primary;
+    font-size: 1rem;
+    font-weight: 500;
+    color: vars.$dark-purple;
+
+    @media (min-width: vars.$breakpoint-md) {
+        font-size: 1.125rem;
+    }
+}

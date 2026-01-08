@@ -1,0 +1,215 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mixins;
+
+.accommodationsContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.intro {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    text-align: center;
+
+    p {
+        @include mixins.txt-body-1;
+        color: vars.$dark-grey;
+        margin: 0;
+    }
+}
+
+.hotelsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @media (min-width: vars.$breakpoint-md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: vars.$breakpoint-lg) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.hotelCard {
+    background: vars.$cream;
+    border-radius: vars.$border-radius-10;
+    overflow: hidden;
+    box-shadow: vars.$light-shadow;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+}
+
+.imageWrapper {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.hotelImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+
+    .hotelCard:hover & {
+        transform: scale(1.05);
+    }
+}
+
+.category {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: vars.$dark-purple;
+    color: vars.$white;
+    font-family: vars.$font-secondary;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+}
+
+.hotelContent {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.hotelHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.hotelName {
+    @include mixins.txt-h4;
+    color: vars.$dark-purple;
+    margin: 0;
+}
+
+.priceRange {
+    font-family: vars.$font-secondary;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: vars.$burnt-orange;
+}
+
+.distance {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: vars.$font-secondary;
+    font-size: 0.8rem;
+    color: vars.$dark-grey;
+    margin: 0 0 1rem;
+}
+
+.icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.description {
+    @include mixins.txt-body-2;
+    color: vars.$black;
+    margin: 0 0 1rem;
+    flex: 1;
+}
+
+.amenities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.amenity {
+    font-family: vars.$font-secondary;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: vars.$dark-purple;
+    background: vars.$light-purple;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+}
+
+.bookingNote {
+    font-family: vars.$font-secondary;
+    font-size: 0.8rem;
+    color: vars.$burnt-orange;
+    background: rgba(234, 126, 93, 0.1);
+    padding: 0.75rem;
+    border-radius: vars.$border-radius-5;
+    margin: 0 0 1rem;
+    border-left: 3px solid vars.$burnt-orange;
+
+    strong {
+        font-weight: 600;
+    }
+}
+
+.bookButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: vars.$font-secondary;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: vars.$white;
+    background: vars.$dark-purple;
+    padding: 0.75rem 1.5rem;
+    border-radius: vars.$border-radius-5;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    margin-top: auto;
+
+    &:hover {
+        background: lighten(vars.$dark-purple, 10%);
+    }
+}
+
+.arrowIcon {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
+
+    .bookButton:hover & {
+        transform: translateX(4px);
+    }
+}
+
+.alternativeStays {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: vars.$cream;
+    border-radius: vars.$border-radius-10;
+    text-align: center;
+    border: 1px solid vars.$medium-grey;
+}
+
+.alternativeTitle {
+    @include mixins.txt-h3;
+    color: vars.$dark-purple;
+    margin: 0 0 1rem;
+}
+
+.alternativeText {
+    @include mixins.txt-body-1;
+    color: vars.$dark-grey;
+    max-width: 700px;
+    margin: 0 auto;
+}
