@@ -1,0 +1,61 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mixins;
+
+.footer {
+    background: vars.$dark-purple;
+    color: vars.$white;
+    padding: 4rem 1.5rem;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.names {
+    font-family: vars.$font-primary;
+    font-size: 2.5rem;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+
+    @media (min-width: vars.$breakpoint-md) {
+        font-size: 3rem;
+    }
+}
+
+.date {
+    font-family: vars.$font-secondary;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.9;
+    margin-bottom: 0.25rem;
+}
+
+.location {
+    font-family: vars.$font-secondary;
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    opacity: 0.7;
+}
+
+.divider {
+    margin: 1.5rem 0;
+}
+
+.heart {
+    font-size: 1.25rem;
+    opacity: 0.8;
+}
+
+.message {
+    font-family: vars.$font-secondary;
+    font-size: 1rem;
+    font-weight: 300;
+    opacity: 0.9;
+    margin: 0;
+}

@@ -1,21 +1,22 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import RSVPButton from '../RSVPButton/RSVPButton';
 import styles from './Navbar.module.scss';
 
 const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/events', label: 'Events' },
-    { href: '/accommodations', label: 'Accommodations' },
-    { href: '/tours', label: 'Tours' },
-    { href: '/our-favorite-spots', label: 'Our Favorite Spots' },
-    { href: '/travel', label: 'Travel' },
+    { href: '#home', label: 'Home' },
+    { href: '#our-story', label: 'Our Story' },
+    { href: '#schedule', label: 'Schedule' },
+    { href: '#accommodations', label: 'Accommodations' },
+    { href: '#travel', label: 'Travel' },
+    { href: '#things-to-do', label: 'Things To Do' },
+    { href: '#faq', label: 'FAQ' },
 ];
 
 export default function Navbar() {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState('home');
 
     // Close drawer when window is resized to desktop size
     useEffect(() => {
@@ -27,6 +28,29 @@ export default function Navbar() {
 
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    // Track active section on scroll
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = navLinks.map(link => link.href.slice(1));
+            const scrollPosition = window.scrollY + 100;
+
+            for (const sectionId of sections) {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    const { offsetTop, offsetHeight } = element;
+                    if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                        setActiveSection(sectionId);
+                        break;
+                    }
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     // Prevent body scroll when drawer is open
@@ -44,6 +68,25 @@ export default function Navbar() {
 
     const closeDrawer = () => setIsDrawerOpen(false);
 
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        e.preventDefault();
+        const targetId = href.slice(1);
+        const element = document.getElementById(targetId);
+
+        if (element) {
+            const headerOffset = 48;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+
+        closeDrawer();
+    };
+
     return (
         <nav className={styles.navbar}>
             <div className={styles.navContent}>
@@ -51,9 +94,13 @@ export default function Navbar() {
                 <ul className={styles.desktopNav}>
                     {navLinks.map((link) => (
                         <li key={link.href}>
-                            <Link href={link.href} className={styles.navLink}>
+                            <a
+                                href={link.href}
+                                className={`${styles.navLink} ${activeSection === link.href.slice(1) ? styles.active : ''}`}
+                                onClick={(e) => handleNavClick(e, link.href)}
+                            >
                                 {link.label}
-                            </Link>
+                            </a>
                         </li>
                     ))}
                     <li>
@@ -86,13 +133,13 @@ export default function Navbar() {
                 <ul className={styles.drawerNav}>
                     {navLinks.map((link) => (
                         <li key={link.href}>
-                            <Link
+                            <a
                                 href={link.href}
-                                className={styles.drawerLink}
-                                onClick={closeDrawer}
+                                className={`${styles.drawerLink} ${activeSection === link.href.slice(1) ? styles.active : ''}`}
+                                onClick={(e) => handleNavClick(e, link.href)}
                             >
                                 {link.label}
-                            </Link>
+                            </a>
                         </li>
                     ))}
                     <li className={styles.drawerRsvp}>

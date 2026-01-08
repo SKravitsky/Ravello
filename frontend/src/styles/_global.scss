@@ -4,10 +4,19 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 html,
 body {
     font-family: variables.$font-primary;
     background-color: variables.$background-primary;
+}
+
+/* Offset for fixed header when scrolling to sections */
+:target {
+    scroll-margin-top: variables.$header-height;
 }
 
 hr {

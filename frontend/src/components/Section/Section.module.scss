@@ -1,0 +1,112 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mixins;
+
+.section {
+    width: 100%;
+    padding: 5rem 0;
+
+    @media (min-width: vars.$breakpoint-md) {
+        padding: 6rem 0;
+    }
+}
+
+.default {
+    background: vars.$cream;
+}
+
+.alternate {
+    background: vars.$white;
+}
+
+.hero {
+    background: vars.$dark-purple;
+    color: vars.$white;
+}
+
+.container {
+    width: 100%;
+    max-width: vars.$max-width;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+
+    @media (min-width: vars.$breakpoint-md) {
+        padding: 0 2rem;
+    }
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    @media (min-width: vars.$breakpoint-md) {
+        margin-bottom: 4rem;
+    }
+}
+
+.title {
+    @include mixins.txt-h1;
+    color: vars.$dark-purple;
+    margin: 0 0 0.75rem;
+
+    .hero & {
+        color: vars.$white;
+    }
+
+    @media (max-width: vars.$breakpoint-md) {
+        font-size: 2.5rem;
+    }
+}
+
+.subtitle {
+    @include mixins.txt-body-1;
+    color: vars.$dark-grey;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+
+    .hero & {
+        color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.dividerLine {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        vars.$dark-grey,
+        transparent
+    );
+
+    .hero & {
+        background: linear-gradient(
+            to right,
+            transparent,
+            rgba(255, 255, 255, 0.5),
+            transparent
+        );
+    }
+}
+
+.dividerIcon {
+    font-size: 0.75rem;
+    color: vars.$dark-purple;
+    opacity: 0.6;
+
+    .hero & {
+        color: vars.$white;
+    }
+}
+
+.content {
+    width: 100%;
+}
