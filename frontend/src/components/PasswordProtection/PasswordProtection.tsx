@@ -24,7 +24,8 @@ export default function PasswordProtection({ children }: PasswordProtectionProps
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (password.toLowerCase() === 'aspen') {
+        const sitePassword = process.env.NEXT_PUBLIC_SITE_PASSWORD;
+        if (password.toLowerCase() === sitePassword?.toLowerCase()) {
             setIsAuthenticated(true);
             localStorage.setItem('wedding-auth', 'authenticated');
             setError('');
