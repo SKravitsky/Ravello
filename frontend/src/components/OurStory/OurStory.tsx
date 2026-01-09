@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Section from '../Section/Section';
 import styles from './OurStory.module.scss';
 
@@ -13,9 +14,10 @@ const OurStory = () => {
                 <div className={styles.storyGrid}>
                     <div className={styles.imageColumn}>
                         <div className={styles.imageWrapper}>
-                            <img
-                                src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&h=800&fit=crop"
-                                alt="Couple in Italy"
+                            <Image
+                                src="/napa_vineyard.jpeg"
+                                alt="Couple at Napa vineyard"
+                                fill
                                 className={styles.storyImage}
                             />
                         </div>
