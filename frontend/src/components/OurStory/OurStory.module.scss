@@ -79,34 +79,55 @@
 
 .timeline {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0;
     padding: 2rem 0;
     border-top: 1px solid vars.$medium-grey;
+    position: relative;
+
+    // Vertical connecting line on mobile
+    &::before {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 2rem;
+        bottom: 2rem;
+        width: 2px;
+        background: linear-gradient(to bottom, vars.$light-purple, vars.$dark-purple);
+    }
 
     @media (min-width: vars.$breakpoint-md) {
-        flex-wrap: nowrap;
+        flex-direction: row;
         justify-content: space-between;
-        gap: 0;
+
+        // Remove vertical line on desktop
+        &::before {
+            display: none;
+        }
     }
 }
 
 .timelineItem {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    text-align: center;
-    flex: 0 0 calc(50% - 0.5rem);
+    text-align: left;
+    gap: 1rem;
+    padding: 1rem 0;
     position: relative;
 
     @media (min-width: vars.$breakpoint-md) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
         flex: 1;
+        gap: 0;
+        padding: 0;
 
         &:not(:last-child)::after {
             content: '';
             position: absolute;
-            top: 50%;
+            top: 55%;
             left: calc(50% + 20px);
             right: calc(-50% + 20px);
             height: 2px;
@@ -116,22 +137,15 @@
     }
 }
 
-.timelineDate {
-    @include mixins.txt-caption;
-    color: vars.$dark-grey;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.5rem;
-}
-
 .timelineDot {
     width: 12px;
     height: 12px;
     background: vars.$dark-purple;
     border-radius: 50%;
-    margin-bottom: 0.5rem;
     position: relative;
     z-index: 1;
+    flex-shrink: 0;
+    order: 0;
 
     &::before {
         content: '';
@@ -139,6 +153,33 @@
         inset: -4px;
         border: 2px solid vars.$light-purple;
         border-radius: 50%;
+        background: vars.$white;
+        z-index: -1;
+    }
+
+    @media (min-width: vars.$breakpoint-md) {
+        order: 1;
+        margin: 0.5rem 0;
+
+        &::before {
+            background: transparent;
+        }
+    }
+}
+
+.timelineText {
+    display: contents;
+}
+
+.timelineDate {
+    @include mixins.txt-caption;
+    color: vars.$dark-grey;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    order: 1;
+
+    @media (min-width: vars.$breakpoint-md) {
+        order: 0;
     }
 }
 
@@ -147,8 +188,10 @@
     font-size: 1rem;
     font-weight: 500;
     color: vars.$dark-purple;
+    order: 2;
 
     @media (min-width: vars.$breakpoint-md) {
+        order: 2;
         font-size: 1.125rem;
     }
 }

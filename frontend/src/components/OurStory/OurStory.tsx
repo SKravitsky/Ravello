@@ -55,29 +55,39 @@ const OurStory = () => {
 
                 <div className={styles.timeline}>
                     <div className={styles.timelineItem}>
-                        <div className={styles.timelineDate}>October 2022</div>
                         <div className={styles.timelineDot} />
-                        <div className={styles.timelineLabel}>First Met</div>
+                        <div className={styles.timelineText}>
+                            <div className={styles.timelineLabel}>First Met</div>
+                            <div className={styles.timelineDate}>October 2022</div>
+                        </div>
                     </div>
                     <div className={styles.timelineItem}>
-                        <div className={styles.timelineDate}>December 2022</div>
                         <div className={styles.timelineDot} />
-                        <div className={styles.timelineLabel}>First Date</div>
+                        <div className={styles.timelineText}>
+                            <div className={styles.timelineLabel}>First Date</div>
+                            <div className={styles.timelineDate}>December 2022</div>
+                        </div>
                     </div>
                     <div className={styles.timelineItem}>
-                        <div className={styles.timelineDate}>June 2024</div>
                         <div className={styles.timelineDot} />
-                        <div className={styles.timelineLabel}>Moved In Together</div>
+                        <div className={styles.timelineText}>
+                            <div className={styles.timelineLabel}>Moved In Together</div>
+                            <div className={styles.timelineDate}>June 2024</div>
+                        </div>
                     </div>
                     <div className={styles.timelineItem}>
-                        <div className={styles.timelineDate}>September 2025</div>
                         <div className={styles.timelineDot} />
-                        <div className={styles.timelineLabel}>Engaged</div>
+                        <div className={styles.timelineText}>
+                            <div className={styles.timelineLabel}>Engaged</div>
+                            <div className={styles.timelineDate}>September 2025</div>
+                        </div>
                     </div>
                     <div className={styles.timelineItem}>
-                        <div className={styles.timelineDate}>August 2026</div>
                         <div className={styles.timelineDot} />
-                        <div className={styles.timelineLabel}>Wedding Day</div>
+                        <div className={styles.timelineText}>
+                            <div className={styles.timelineLabel}>Wedding Day</div>
+                            <div className={styles.timelineDate}>August 2026</div>
+                        </div>
                     </div>
                 </div>
             </div>
