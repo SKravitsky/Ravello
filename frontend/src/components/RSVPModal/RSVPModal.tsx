@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import styles from './RSVPModal.module.scss';
 
 interface RSVPModalProps {
@@ -69,19 +70,24 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
         const form = e.currentTarget;
         const formData = new FormData(form);
 
+        // // Ensure form-name is included for Netlify
+        // formData.set('form-name', 'rsvp');
+
         try {
-            const response = await fetch('/', {
+            const response = await fetch('/__forms.html', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
+                body: new URLSearchParams(formData as never).toString(),
             });
 
             if (response.ok) {
                 setSubmitStatus('success');
             } else {
+                console.error('Form submission failed:', response.status, response.statusText);
                 setSubmitStatus('error');
             }
-        } catch {
+        } catch (error) {
+            console.error('Form submission error:', error);
             setSubmitStatus('error');
         } finally {
             setIsSubmitting(false);
@@ -90,26 +96,22 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
 
     if (!isOpen) return null;
 
-    if (submitStatus === 'success') {
-        return (
-            <div className={styles.overlay} onClick={handleBackdropClick}>
-                <div className={styles.modal} ref={modalRef}>
-                    <button className={styles.closeButton} onClick={handleClose} aria-label="Close">
-                        &times;
+    const modalContent = submitStatus === 'success' ? (
+        <div className={styles.overlay} onClick={handleBackdropClick}>
+            <div className={styles.modal} ref={modalRef}>
+                <button className={styles.closeButton} onClick={handleClose} aria-label="Close">
+                    &times;
+                </button>
+                <div className={styles.successMessage}>
+                    <h2 className={styles.title}>Thank You!</h2>
+                    <p className={styles.subtitle}>Your RSVP has been received.</p>
+                    <button className={styles.button} onClick={handleClose}>
+                        Close
                     </button>
-                    <div className={styles.successMessage}>
-                        <h2 className={styles.title}>Thank You!</h2>
-                        <p className={styles.subtitle}>Your RSVP has been received.</p>
-                        <button className={styles.button} onClick={handleClose}>
-                            Close
-                        </button>
-                    </div>
                 </div>
             </div>
-        );
-    }
-
-    return (
+        </div>
+    ) : (
         <div className={styles.overlay} onClick={handleBackdropClick}>
             <div className={styles.modal} ref={modalRef}>
                 <button className={styles.closeButton} onClick={handleClose} aria-label="Close">
@@ -259,4 +261,6 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
             </div>
         </div>
     );
+
+    return createPortal(modalContent, document.body);
 }

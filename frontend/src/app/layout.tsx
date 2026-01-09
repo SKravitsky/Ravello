@@ -31,22 +31,23 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${fontPrimary.variable} ${fontSecondary.variable}`}>
-                {/* Hidden form for Netlify to detect at build time */}
+                {/* Hidden form for Netlify to detect at build time
                 <form
                     name="rsvp"
+                    method="POST"
                     data-netlify="true"
                     netlify-honeypot="bot-field"
-                    hidden
+                    style={{ display: 'none' }}
                 >
                     <input type="hidden" name="form-name" value="rsvp" />
-                    <input name="bot-field" />
-                    <input name="name" />
-                    <input name="email" />
-                    <input name="attendance" />
-                    <input name="guestCount" />
-                    <input name="dietaryRestrictions" />
+                    <input type="text" name="bot-field" />
+                    <input type="text" name="name" />
+                    <input type="email" name="email" />
+                    <input type="text" name="attendance" />
+                    <input type="text" name="guestCount" />
+                    <input type="text" name="dietaryRestrictions" />
                     <textarea name="message" />
-                </form>
+                </form> */}
 
                 <PasswordProtection>
                     <header className={styles.header}>
