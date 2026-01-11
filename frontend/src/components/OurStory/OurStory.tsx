@@ -27,29 +27,32 @@ const OurStory = () => {
                         <div className={styles.storyContent}>
                             <h3 className={styles.chapterTitle}>How We Met</h3>
                             <p className={styles.storyText}>
-                                It was a crisp autumn evening in New York City when fate brought us together.
-                                Steven was grabbing his usual espresso at a small café in the West Village,
-                                while Vika was there sketching in her notebook. A spilled coffee and a shared
-                                laugh later, what started as an accidental encounter became the beginning of
-                                our greatest adventure.
+                                We met at a mutual friend&apos;s birthday celebration in Manhattan. The group had
+                                gathered at Steven&apos;s apartment in Jersey City before heading out dancing in
+                                Manhattan. On the walk back from the Meatpacking District to One World Trade
+                                Center, Steven and Viktoryia talked the entire way. They continued talking
+                                constantly until their first date, an EDM concert in Brooklyn.
                             </p>
 
                             <h3 className={styles.chapterTitle}>The Proposal</h3>
                             <p className={styles.storyText}>
-                                Two years later, during a trip to the Amalfi Coast, Steven led Vika through
-                                the winding paths of Villa Cimbrone&apos;s gardens at sunset. At the Terrace of
-                                Infinity, with the Mediterranean Sea stretching endlessly before them and the
-                                sky painted in shades of gold and rose, he got down on one knee. Vika said yes
-                                before he could even finish the question.
+                                Two of the couples friends, Dennis and Jenn Rupp, had invited us and Matt West to an Airbnb in
+                                Napa Valley, California after one of their friends supposedly cancelled. Since
+                                Viktoryia and Steven were members of a wine club at Sequoia Grove, they decided
+                                to go wine tasting there while everyone else went on a &quot;hike.&quot; Little did
+                                Viktoryia know, Steven had planned the whole thing! Dennis&apos;s friend cancelling
+                                was all a ruse. She didn&apos;t even notice that nobody was wearing hiking clothes
+                                when they left! Steven proposed at Sequoia Grove, and they were later joined by
+                                Viktoryia&apos;s family and Steven&apos;s Mom to celebrate.
                             </p>
 
                             <h3 className={styles.chapterTitle}>Why Ravello</h3>
                             <p className={styles.storyText}>
-                                The magic of that evening stayed with us, and we knew there was no other place
-                                we&apos;d rather begin our married life. Villa Cimbrone, perched high above the
-                                Amalfi Coast, holds our most treasured memory—and soon, it will be the setting
-                                for our most important day. We can&apos;t wait to share this special place with the
-                                people we love most.
+                                Since Viktoryia is originally from Europe, we knew we wanted to get married
+                                somewhere her family could easily travel to. And honestly, have you ever seen
+                                an Italian wedding? They&apos;re incredible. Once we discovered Villa Cimbrone—with
+                                its centuries of history and those jaw-dropping views over the Amalfi Coast—we
+                                were sold. We can&apos;t wait to share this magical place with everyone we love.
                             </p>
                         </div>
                     </div>
@@ -60,28 +63,28 @@ const OurStory = () => {
                         <div className={styles.timelineDot} />
                         <div className={styles.timelineText}>
                             <div className={styles.timelineLabel}>First Met</div>
-                            <div className={styles.timelineDate}>October 2022</div>
+                            <div className={styles.timelineDate}>October 2017</div>
                         </div>
                     </div>
                     <div className={styles.timelineItem}>
                         <div className={styles.timelineDot} />
                         <div className={styles.timelineText}>
                             <div className={styles.timelineLabel}>First Date</div>
-                            <div className={styles.timelineDate}>December 2022</div>
+                            <div className={styles.timelineDate}>January 2018</div>
                         </div>
                     </div>
                     <div className={styles.timelineItem}>
                         <div className={styles.timelineDot} />
                         <div className={styles.timelineText}>
                             <div className={styles.timelineLabel}>Moved In Together</div>
-                            <div className={styles.timelineDate}>June 2024</div>
+                            <div className={styles.timelineDate}>January 2023</div>
                         </div>
                     </div>
                     <div className={styles.timelineItem}>
                         <div className={styles.timelineDot} />
                         <div className={styles.timelineText}>
                             <div className={styles.timelineLabel}>Engaged</div>
-                            <div className={styles.timelineDate}>September 2025</div>
+                            <div className={styles.timelineDate}>December 2024</div>
                         </div>
                     </div>
                     <div className={styles.timelineItem}>
