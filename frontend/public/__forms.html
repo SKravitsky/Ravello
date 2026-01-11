@@ -7,12 +7,17 @@
 <body>
     <!-- Hidden form for Netlify form detection -->
     <form name="rsvp" data-netlify="true" netlify-honeypot="bot-field" hidden>
-        <input name="bot-field" />
-        <input name="name" />
-        <input name="email" />
-        <input name="attendance" />
-        <input name="guestCount" />
-        <input name="dietaryRestrictions" />
+        <input type="hidden" name="form-name" value="rsvp" />
+        <input type="text" name="bot-field" />
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="text" name="attendance" />
+        <input type="text" name="guestCount" />
+        <input type="text" name="guestName1" />
+        <input type="text" name="guestName2" />
+        <input type="text" name="attendanceDate" />
+        <input type="text" name="dietaryRestrictions" />
+        <input type="text" name="songRequest" />
         <textarea name="message"></textarea>
     </form>
 </body>

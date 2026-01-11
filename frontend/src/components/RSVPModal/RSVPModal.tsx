@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import styles from './RSVPModal.module.scss';
 
 interface RSVPModalProps {
@@ -9,13 +10,17 @@ interface RSVPModalProps {
 }
 
 type AttendanceStatus = '' | 'yes' | 'no';
+type AttendanceDate = '' | 'Wed, August 26th' | 'Fri, August 28th';
 
 export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [attendance, setAttendance] = useState<AttendanceStatus>('');
-    const [guestCount, setGuestCount] = useState('1');
+    const [attendanceDate, setAttendanceDate] = useState<AttendanceDate>('');
+    const [guestCount, setGuestCount] = useState('0');
+    const [guestNames, setGuestNames] = useState<string[]>(['', '']);
     const [dietaryRestrictions, setDietaryRestrictions] = useState('');
+    const [songRequest, setSong] = useState('');
     const [message, setMessage] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -51,8 +56,11 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
         setName('');
         setEmail('');
         setAttendance('');
-        setGuestCount('1');
+        setAttendanceDate('');
+        setGuestCount('0');
+        setGuestNames(['', '']);
         setDietaryRestrictions('');
+        setSong('');
         setMessage('');
         setSubmitStatus('idle');
     };
@@ -66,22 +74,46 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
         e.preventDefault();
         setIsSubmitting(true);
 
-        const form = e.currentTarget;
-        const formData = new FormData(form);
+        // Add the submitter as a guest
+        const guests = guestCount;
+        const guestWithUser = guestCount + 1;
+        setGuestCount(guestWithUser);
+
+        const formData: Record<string, string> = {
+            'form-name': 'rsvp',
+            name,
+            email,
+            attendance,
+            guestCount,
+            attendanceDate,
+            dietaryRestrictions,
+            songRequest,
+            message,
+        };
+
+        // Add guest names to form data
+        guestNames.forEach((guestName, index) => {
+            formData[`guestName${index + 1}`] = guestName;
+        });
+
+        console.log(formData);
+        setGuestCount(guests)
 
         try {
-            const response = await fetch('/', {
+            const response = await fetch('/__forms.html', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
+                body: new URLSearchParams(formData).toString(),
             });
 
             if (response.ok) {
                 setSubmitStatus('success');
             } else {
+                console.error('Form submission failed:', response.status, response.statusText);
                 setSubmitStatus('error');
             }
-        } catch {
+        } catch (error) {
+            console.error('Form submission error:', error);
             setSubmitStatus('error');
         } finally {
             setIsSubmitting(false);
@@ -90,26 +122,22 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
 
     if (!isOpen) return null;
 
-    if (submitStatus === 'success') {
-        return (
-            <div className={styles.overlay} onClick={handleBackdropClick}>
-                <div className={styles.modal} ref={modalRef}>
-                    <button className={styles.closeButton} onClick={handleClose} aria-label="Close">
-                        &times;
+    const modalContent = submitStatus === 'success' ? (
+        <div className={styles.overlay} onClick={handleBackdropClick}>
+            <div className={styles.modal} ref={modalRef}>
+                <button className={styles.closeButton} onClick={handleClose} aria-label="Close">
+                    &times;
+                </button>
+                <div className={styles.successMessage}>
+                    <h2 className={styles.title}>Thank You!</h2>
+                    <p className={styles.subtitle}>Your RSVP has been received.</p>
+                    <button className={styles.button} onClick={handleClose}>
+                        Close
                     </button>
-                    <div className={styles.successMessage}>
-                        <h2 className={styles.title}>Thank You!</h2>
-                        <p className={styles.subtitle}>Your RSVP has been received.</p>
-                        <button className={styles.button} onClick={handleClose}>
-                            Close
-                        </button>
-                    </div>
                 </div>
             </div>
-        );
-    }
-
-    return (
+        </div>
+    ) : (
         <div className={styles.overlay} onClick={handleBackdropClick}>
             <div className={styles.modal} ref={modalRef}>
                 <button className={styles.closeButton} onClick={handleClose} aria-label="Close">
@@ -209,15 +237,77 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
                                     id="guestCount"
                                     name="guestCount"
                                     value={guestCount}
-                                    onChange={(e) => setGuestCount(e.target.value)}
+                                    onChange={(e) => {
+                                        const newCount = parseInt(e.target.value, 10);
+                                        setGuestCount(e.target.value);
+                                        setGuestNames(prev => {
+                                            const newNames = [...prev];
+                                            for (let i = newCount; i < newNames.length; i++) {
+                                                newNames[i] = '';
+                                            }
+                                            return newNames;
+                                        });
+                                    }}
                                     className={styles.select}
                                 >
+                                    <option value="0">0</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
                                 </select>
+                            </div>
+
+                            {parseInt(guestCount, 10) > 0 && (
+                                <div className={styles.formGroup}>
+                                    <label className={styles.label}>
+                                        Guest Name{parseInt(guestCount, 10) > 1 ? 's' : ''} <span className={styles.required}>*</span>
+                                    </label>
+                                    {Array.from({ length: parseInt(guestCount, 10) }).map((_, index) => (
+                                        <input
+                                            key={index}
+                                            type="text"
+                                            name={`guestName${index + 1}`}
+                                            value={guestNames[index] || ''}
+                                            onChange={(e) => {
+                                                const newNames = [...guestNames];
+                                                newNames[index] = e.target.value;
+                                                setGuestNames(newNames);
+                                            }}
+                                            className={styles.input}
+                                            placeholder={`Guest ${index + 1} full name`}
+                                            required
+                                            style={{ marginTop: index > 0 ? '0.5rem' : '0' }}
+                                        />
+                                    ))}
+                                </div>
+                            )}
+
+                            <div className={styles.formGroup}>
+                                <label className={styles.label}>
+                                    When will you be attending?
+                                </label>
+                                <div className={styles.radioGroup}>
+                                    <label className={styles.radioLabel}>
+                                        <input
+                                            type="radio"
+                                            name="attendanceDate"
+                                            value="Wed, August 26th"
+                                            checked={attendanceDate === 'Wed, August 26th'}
+                                            onChange={(e) => setAttendanceDate(e.target.value as AttendanceDate)}
+                                            required
+                                        />
+                                        <span>Wed, August 26th</span>
+                                    </label>
+                                    <label className={styles.radioLabel}>
+                                        <input
+                                            type="radio"
+                                            name="attendanceDate"
+                                            value="Fri, August 28th"
+                                            checked={attendanceDate === 'Fri, August 28th'}
+                                            onChange={(e) => setAttendanceDate(e.target.value as AttendanceDate)}
+                                        />
+                                        <span>Fri, August 28th</span>
+                                    </label>
+                                </div>
                             </div>
 
                             <div className={styles.formGroup}>
@@ -232,6 +322,21 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
                                     onChange={(e) => setDietaryRestrictions(e.target.value)}
                                     className={styles.input}
                                     placeholder="e.g., vegetarian, gluten-free, allergies"
+                                />
+                            </div>
+
+                            <div className={styles.formGroup}>
+                                <label htmlFor="songRequest" className={styles.label}>
+                                    Share a song request
+                                </label>
+                                <input
+                                    type="text"
+                                    id="songRequest"
+                                    name="songRequest"
+                                    value={songRequest}
+                                    onChange={(e) => setSong(e.target.value)}
+                                    className={styles.input}
+                                    placeholder="Share a song request"
                                 />
                             </div>
                         </>
@@ -259,4 +364,6 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
             </div>
         </div>
     );
+
+    return createPortal(modalContent, document.body);
 }
