@@ -6,6 +6,7 @@ import styles from './Navbar.module.scss';
 
 const navLinks = [
     { href: '#home', label: 'Home' },
+    { href: '#welcome', label: 'Welcome' },
     { href: '#our-story', label: 'Our Story' },
     { href: '#schedule', label: 'Schedule' },
     { href: '#accommodations', label: 'Accommodations' },

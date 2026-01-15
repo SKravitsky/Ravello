@@ -19,7 +19,7 @@
 }
 
 .hero {
-    background: vars.$dark-purple;
+    background: vars.$signature-color-dark;
     color: vars.$white;
 }
 
@@ -45,7 +45,7 @@
 
 .title {
     @include mixins.txt-h1;
-    color: vars.$dark-purple;
+    color: vars.$signature-color-dark;
     margin: 0 0 0.75rem;
 
     .hero & {
@@ -99,7 +99,7 @@
 
 .dividerIcon {
     font-size: 0.75rem;
-    color: vars.$dark-purple;
+    color: vars.$signature-color-dark;
     opacity: 0.6;
 
     .hero & {

@@ -206,24 +206,14 @@
     }
 }
 
-/* RSVP Button Override */
 .rsvpButton {
-    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
     color: variables.$white;
     padding: 1rem 3rem;
-    font-family: variables.$font-secondary;
-    font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.2em;
     transition: all 0.3s ease;
 
-    &:hover {
-        background: rgba(255, 255, 255, 0.2);
-        border-color: rgba(255, 255, 255, 0.5);
-        transform: translateY(-2px);
-    }
 }
 
 /* Scroll Indicator */

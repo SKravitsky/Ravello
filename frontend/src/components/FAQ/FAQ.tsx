@@ -7,7 +7,7 @@ import styles from './FAQ.module.scss';
 const faqs = [
     {
         question: 'What is the dress code?',
-        answer: 'The wedding ceremony and reception are Black Tie Optional. For gentlemen, this means a dark suit or tuxedo. For ladies, a floor-length gown or elegant cocktail dress. Keep in mind the venue has outdoor areas and stone pathways—block heels or wedges are recommended over stilettos. Other events throughout the weekend are more casual—check the schedule for specific dress codes.',
+        answer: 'The wedding ceremony and reception are Black Tie Optional. Ladies: embrace the romance with long dresses in soft hues—consider bringing a shawl for the evening, chunky heels for the garden pathways, and a spare pair of dancing shoes! Gentlemen: formal wear is requested, and an extra collared shirt is not a bad idea as the August sun can be warm. For the Welcome Dinner, think "Dolce Vita" Chic—fun fabrics, vibrant colors, and playful accessories. For the Rehearsal Dinner, Italian Elegance—sophisticated cocktail dresses or tailored suits, no jeans please.',
     },
     {
         question: 'When should I RSVP by?',
@@ -23,11 +23,27 @@ const faqs = [
     },
     {
         question: 'Will transportation be provided?',
-        answer: 'Yes! We will provide shuttle service between Hotel Caruso and Villa Cimbrone for all wedding events. For guests staying at other accommodations, please let us know and we\'ll help coordinate transportation.',
+        answer: 'Yes! We will provide pickup from Naples Airport to your first destination as a courtesy for traveling. We will also provide shuttle service between accommodations and Villa Cimbrone for wedding events. For guests staying at other accommodations, please let us know and we\'ll help coordinate transportation.',
     },
     {
         question: 'What is the weather like in late August?',
         answer: 'Late August in Ravello is typically warm and sunny, with temperatures around 28-32°C (82-90°F). Evenings can be cooler, especially with the sea breeze, so bring a light wrap or jacket for the outdoor reception. Rain is unlikely but we have contingency plans just in case!',
+    },
+    {
+        question: 'What currency is used and how should I handle money?',
+        answer: 'The currency in Italy is the Euro. We advise exchanging dollars for euros before your departure. ATMs are available but typically limit withdrawals to 500 euros per day. Be sure to notify your bank that you will be traveling outside the country to avoid any card issues.',
+    },
+    {
+        question: 'What should I pack for the trip?',
+        answer: 'Don\'t forget your power adapter converter for European outlets! We also suggest a portable USB phone charger as Amalfi Coast outlets can be scarce and internet isn\'t always strong. If traveling with others and checking bags, consider mixing belongings between suitcases in case one is lost. We recommend bringing wedding attire in your carry-on. AirTags are a great investment for all luggage!',
+    },
+    {
+        question: 'I get motion sickness - any tips for the Amalfi Coast roads?',
+        answer: 'The winding coastal roads are beautiful but can be challenging for those prone to motion sickness! We recommend purchasing "Sea-Bands" and ginger candy before your arrival. These will help both on the roads and during our boat day to Capri.',
+    },
+    {
+        question: 'How do I book tours or get help with accommodations?',
+        answer: 'Our wonderful wedding planner Maryla Colandrea can assist with booking accommodations, transportation, tours, or answer any questions. Contact her at info@artofperfectionevents.com with your details. We\'ve coordinated optional day trips including Positano, Capri, Pompeii, and cooking classes.',
     },
     {
         question: 'Is there a gift registry?',
@@ -42,8 +58,12 @@ const faqs = [
         answer: 'Absolutely! Italian cuisine offers wonderful vegetarian dishes. Please indicate any dietary restrictions or allergies on your RSVP card, and we\'ll ensure you\'re well taken care of.',
     },
     {
+        question: 'What nightlife options are on the Amalfi Coast?',
+        answer: 'There\'s plenty to explore! In Amalfi: Masaniello Art Cafe, Marinella Beach Club, and Hotel la Bussola Sea Waves bar. In Praiano: Africana Famous Club. In Positano: Music on the Rocks. In Minori: Rada Beach Club. In Ravello: Le Mosaique Club near Hotel Giordano.',
+    },
+    {
         question: 'What if I have more questions?',
-        answer: 'We\'re here to help! Feel free to reach out to us directly at wedding@stevenandvika.com or call/text us. We want to make sure you have all the information you need for a wonderful trip.',
+        answer: 'We\'re here to help! Feel free to reach out to us directly at wedding@stevenandvika.com, or contact our wedding planner Maryla at info@artofperfectionevents.com. We want to make sure you have all the information you need for a wonderful trip!',
     },
 ];
 

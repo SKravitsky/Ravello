@@ -58,7 +58,7 @@
     font-size: 3rem;
     margin: 0 0 0.5rem 0;
     text-align: center;
-    color: vars.$dark-purple;
+    color: vars.$signature-color-dark;
 
     @media (max-width: vars.$breakpoint-sm) {
         font-size: 2.5rem;
@@ -107,7 +107,7 @@
 
     &:focus {
         outline: none;
-        border-color: vars.$dark-purple;
+        border-color: vars.$signature-color-dark;
     }
 
     &::placeholder {
@@ -146,14 +146,14 @@
     input[type='radio'] {
         width: 1.125rem;
         height: 1.125rem;
-        accent-color: vars.$dark-purple;
+        accent-color: vars.$signature-color-dark;
         cursor: pointer;
     }
 }
 
 .button {
     padding: 1rem 1.5rem;
-    background: vars.$dark-purple;
+    background: vars.$signature-color-dark;
     color: vars.$white;
     border: none;
     border-radius: 8px;
@@ -164,11 +164,11 @@
     margin-top: 0.5rem;
 
     &:hover:not(:disabled) {
-        background: lighten(vars.$dark-purple, 10%);
+        background: lighten(vars.$signature-color-dark, 10%);
     }
 
     &:active:not(:disabled) {
-        background: darken(vars.$dark-purple, 5%);
+        background: darken(vars.$signature-color-dark, 5%);
     }
 
     &:disabled {

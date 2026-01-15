@@ -130,7 +130,7 @@ const Travel = () => {
                                 </svg>
                             </div>
                             <h4>Arrive a Day Early</h4>
-                            <p>We recommend arriving by Saturday, August 29 to settle in and recover from jet lag before the festivities begin.</p>
+                            <p>We recommend arriving by Friday, August 28 to settle in and recover from jet lag before the festivities begin.</p>
                         </div>
                         <div className={styles.tipCard}>
                             <div className={styles.tipIcon}>

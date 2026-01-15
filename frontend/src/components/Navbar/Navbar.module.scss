@@ -37,7 +37,7 @@
 }
 
 .navLink {
-    color: vars.$dark-purple;
+    color: vars.$signature-color-dark;
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: 500;
@@ -49,11 +49,11 @@
     cursor: pointer;
 
     &:hover {
-        color: lighten(vars.$dark-purple, 20%);
+        color: lighten(vars.$signature-color-dark, 20%);
     }
 
     &.active {
-        border-bottom-color: vars.$dark-purple;
+        border-bottom-color: vars.$signature-color-dark;
     }
 }
 
@@ -86,7 +86,7 @@
     display: block;
     width: 24px;
     height: 2px;
-    background: vars.$dark-purple;
+    background: vars.$signature-color-dark;
     transition: transform 0.3s, opacity 0.3s;
 
     &.open {
@@ -163,7 +163,7 @@
 
 .drawerLink {
     display: block;
-    color: vars.$dark-purple;
+    color: vars.$signature-color-dark;
     text-decoration: none;
     font-size: 1.125rem;
     font-weight: 500;
@@ -174,12 +174,12 @@
     cursor: pointer;
 
     &:hover {
-        color: lighten(vars.$dark-purple, 20%);
+        color: lighten(vars.$signature-color-dark, 20%);
     }
 
     &.active {
         padding-left: 0.5rem;
-        border-left: 3px solid vars.$dark-purple;
+        border-left: 3px solid vars.$signature-color-dark;
     }
 }
 

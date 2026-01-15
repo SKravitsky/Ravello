@@ -18,7 +18,7 @@
 }
 
 .dayHeader {
-    background: vars.$dark-purple;
+    background: vars.$signature-color-dark;
     color: vars.$white;
     padding: 1.25rem 1.5rem;
     display: flex;
@@ -87,7 +87,7 @@
     font-family: vars.$font-secondary;
     font-size: 0.875rem;
     font-weight: 600;
-    color: vars.$dark-purple;
+    color: vars.$signature-color-dark;
     white-space: nowrap;
     min-width: 120px;
 
@@ -113,7 +113,7 @@
     font-family: vars.$font-secondary;
     font-size: 0.875rem;
     font-weight: 500;
-    color: vars.$dark-purple;
+    color: vars.$signature-color-dark;
     margin: 0 0 0.75rem;
 }
 
@@ -134,8 +134,8 @@
     font-family: vars.$font-secondary;
     font-size: 0.75rem;
     font-weight: 500;
-    color: vars.$dark-purple;
-    background: vars.$light-purple;
+    color: vars.$signature-color-dark;
+    background: vars.$signature-color-light;
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
     letter-spacing: 0.05em;

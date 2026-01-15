@@ -8,7 +8,7 @@
 
 .sectionTitle {
     @include mixins.txt-h3;
-    color: vars.$dark-purple;
+    color: vars.$signature-color-dark;
     text-align: center;
     margin: 0 0 2rem;
 }
@@ -35,8 +35,8 @@
     position: relative;
 
     &.recommended {
-        border-color: vars.$dark-purple;
-        box-shadow: 0 0 0 1px vars.$dark-purple;
+        border-color: vars.$signature-color-dark;
+        box-shadow: 0 0 0 1px vars.$signature-color-dark;
     }
 }
 
@@ -44,7 +44,7 @@
     position: absolute;
     top: -10px;
     right: 1rem;
-    background: vars.$dark-purple;
+    background: vars.$signature-color-dark;
     color: vars.$white;
     font-family: vars.$font-secondary;
     font-size: 0.7rem;
@@ -57,7 +57,7 @@
 
 .airportName {
     @include mixins.txt-h4;
-    color: vars.$dark-purple;
+    color: vars.$signature-color-dark;
     margin: 0 0 0.5rem;
 }
 
@@ -105,7 +105,7 @@
     width: 48px;
     height: 48px;
     margin: 0 auto 1rem;
-    color: vars.$dark-purple;
+    color: vars.$signature-color-dark;
 
     svg {
         width: 100%;
@@ -115,7 +115,7 @@
 
 .transportTitle {
     @include mixins.txt-h4;
-    color: vars.$dark-purple;
+    color: vars.$signature-color-dark;
     margin: 0 0 0.75rem;
 }
 
@@ -172,8 +172,8 @@
     width: 40px;
     height: 40px;
     margin: 0 auto 1rem;
-    color: vars.$dark-purple;
-    background: vars.$light-purple;
+    color: vars.$signature-color-dark;
+    background: vars.$signature-color-light;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -190,7 +190,7 @@
     font-family: vars.$font-primary;
     font-size: 1.125rem;
     font-weight: 500;
-    color: vars.$dark-purple;
+    color: vars.$signature-color-dark;
     margin: 0 0 0.5rem;
 }
 
