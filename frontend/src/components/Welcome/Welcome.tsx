@@ -62,9 +62,8 @@ const Welcome = () => {
                     <p className={styles.greeting}>
                         We are so excited to see you in Italy. We cannot imagine celebrating our
                         wedding without you and are incredibly grateful you are making the trip.
-                    </p>
-
-                    <p className={styles.message}>
+                        </p>
+                        <p className={styles.greeting}>
                         The Amalfi Coast is our favorite place, one we cherish the most, and we
                         can&apos;t wait to spend time in such a special location with all of our loved ones.
                     </p>
