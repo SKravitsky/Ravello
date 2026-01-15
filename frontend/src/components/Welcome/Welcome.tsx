@@ -5,51 +5,51 @@ import Section from '../Section/Section';
 import styles from './Welcome.module.scss';
 
 const Welcome = () => {
-    const [boatName, setBoatName] = useState('');
-    const [boatEmail, setBoatEmail] = useState('');
-    const [boatGuests, setBoatGuests] = useState('1');
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+    // const [boatName, setBoatName] = useState('');
+    // const [boatEmail, setBoatEmail] = useState('');
+    // const [boatGuests, setBoatGuests] = useState('1');
+    // const [isSubmitting, setIsSubmitting] = useState(false);
+    // const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-    const handleMailto = (e: React.MouseEvent<HTMLAnchorElement>, email: string, subject: string) => {
-        e.preventDefault();
-        window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
-    };
+    // const handleMailto = (e: React.MouseEvent<HTMLAnchorElement>, email: string, subject: string) => {
+    //     e.preventDefault();
+    //     window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+    // };
 
-    const handleBoatRsvp = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setIsSubmitting(true);
+    // const handleBoatRsvp = async (e: React.FormEvent<HTMLFormElement>) => {
+    //     e.preventDefault();
+    //     setIsSubmitting(true);
 
-        const formData: Record<string, string> = {
-            'form-name': 'boat-trip-rsvp',
-            name: boatName,
-            email: boatEmail,
-            guests: boatGuests,
-        };
+    //     const formData: Record<string, string> = {
+    //         'form-name': 'boat-trip-rsvp',
+    //         name: boatName,
+    //         email: boatEmail,
+    //         guests: boatGuests,
+    //     };
 
-        try {
-            const response = await fetch('/__forms.html', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(formData).toString(),
-            });
+    //     try {
+    //         const response = await fetch('/__forms.html', {
+    //             method: 'POST',
+    //             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    //             body: new URLSearchParams(formData).toString(),
+    //         });
 
-            if (response.ok) {
-                setSubmitStatus('success');
-                setBoatName('');
-                setBoatEmail('');
-                setBoatGuests('1');
-            } else {
-                console.error('Form submission failed:', response.status, response.statusText);
-                setSubmitStatus('error');
-            }
-        } catch (error) {
-            console.error('Form submission error:', error);
-            setSubmitStatus('error');
-        } finally {
-            setIsSubmitting(false);
-        }
-    };
+    //         if (response.ok) {
+    //             setSubmitStatus('success');
+    //             setBoatName('');
+    //             setBoatEmail('');
+    //             setBoatGuests('1');
+    //         } else {
+    //             console.error('Form submission failed:', response.status, response.statusText);
+    //             setSubmitStatus('error');
+    //         }
+    //     } catch (error) {
+    //         console.error('Form submission error:', error);
+    //         setSubmitStatus('error');
+    //     } finally {
+    //         setIsSubmitting(false);
+    //     }
+    // };
 
     return (
         <Section
@@ -81,10 +81,9 @@ const Welcome = () => {
                     <p className={styles.boatTripDescription}>
                         We&apos;re taking a private boat from the Amalfi Coast to Capri! Join us for
                         Prosecco, swimming in hidden coves, and views of the famous Faraglioni rocks.
-                        This often becomes guests&apos; favorite day.
                     </p>
 
-                    {submitStatus === 'success' ? (
+                    {/* {submitStatus === 'success' ? (
                         <div className={styles.successMessage}>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
@@ -172,7 +171,7 @@ const Welcome = () => {
                                 {isSubmitting ? 'Submitting...' : 'RSVP for Boat Trip'}
                             </button>
                         </form>
-                    )}
+                    )} */}
                 </div>
 
                 <div className={styles.toursInfo}>
@@ -196,7 +195,7 @@ const Welcome = () => {
                     <a
                         href="mailto:info@artofperfectionevents.com?subject=Question%20-%20Vika%20%26%20Steven%20Wedding"
                         className={styles.contactButton}
-                        onClick={(e) => handleMailto(e, 'info@artofperfectionevents.com', 'Question - Vika & Steven Wedding')}
+                        // onClick={(e) => handleMailto(e, 'info@artofperfectionevents.com', 'Question - Vika & Steven Wedding')}
                     >
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
