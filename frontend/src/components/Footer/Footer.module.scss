@@ -2,7 +2,7 @@
 @use '@/styles/mixins' as mixins;
 
 .footer {
-    background: vars.$dark-purple;
+    background: vars.$signature-color-dark;
     color: vars.$white;
     padding: 4rem 1.5rem;
     text-align: center;

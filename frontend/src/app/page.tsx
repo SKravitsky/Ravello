@@ -1,6 +1,7 @@
 import styles from "./page.module.scss";
 import RSVPButton from "@/components/RSVPButton/RSVPButton";
 import OurStory from "@/components/OurStory/OurStory";
+import Welcome from "@/components/Welcome/Welcome";
 import Schedule from "@/components/Schedule/Schedule";
 import Accommodations from "@/components/Accommodations/Accommodations";
 import Travel from "@/components/Travel/Travel";
@@ -63,6 +64,7 @@ export default function Home() {
                 </div>
             </main>
 
+            <Welcome />
             <OurStory />
             <Schedule />
             <Accommodations />

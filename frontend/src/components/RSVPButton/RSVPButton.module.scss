@@ -2,7 +2,7 @@
 
 .button {
     padding: 1rem 2.5rem;
-    background: vars.$dark-purple;
+    background: vars.$signature-color-dark;
     color: vars.$white;
     border: none;
     border-radius: 8px;
@@ -14,12 +14,12 @@
     letter-spacing: 0.05em;
 
     &:hover {
-        background: lighten(vars.$dark-purple, 10%);
+        background: lighten(vars.$signature-color-dark, 10%);
         transform: translateY(-2px);
     }
 
     &:active {
-        background: darken(vars.$dark-purple, 5%);
+        background: darken(vars.$signature-color-dark, 5%);
         transform: translateY(0);
     }
 }

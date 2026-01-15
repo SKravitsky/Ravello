@@ -3,37 +3,37 @@ import styles from './Accommodations.module.scss';
 
 const hotels = [
     {
-        name: 'Hotel Caruso',
+        name: 'Villa Cimbrone',
         category: 'Luxury',
-        description: 'A Belmond Hotel perched on the highest point of Ravello, featuring an infinity pool and panoramic views. This is where our welcome events will be held.',
+        description: 'A stunning 11th-century palazzo transformed into an exclusive boutique hotel, featuring the iconic Terrace of Infinity with breathtaking views over the Amalfi Coast. The historic gardens are among the most beautiful in Italy.',
+        priceRange: '€€€€€',
+        distance: 'You are at Villa Cimbrone',
+        amenities: ['Historic Gardens', 'Terrace of Infinity', 'Fine Dining', 'Spa', 'Pool', 'Sea Views'],
+        image: 'https://www.hotelvillacimbrone.com/wp-content/uploads/2020/02/Hotel-Villa-Cimbrone-23-1920.jpg',
+        bookingNote: null,
+        website: 'https://www.hotelvillacimbrone.com/',
+    },
+    {
+        name: 'Villa Eva',
+        category: 'Luxury',
+        description: 'An elegant family-run villa nestled in lush Mediterranean gardens, offering intimate suites with private terraces and panoramic coastal views. Known for its warm hospitality and tranquil atmosphere.',
         priceRange: '€€€€',
         distance: '5 min walk to Villa Cimbrone',
-        amenities: ['Infinity Pool', 'Spa', 'Fine Dining', 'Gardens'],
-        image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop',
-        bookingNote: 'We have a room block - mention "Steven & Vika Wedding" when booking',
-        website: 'https://www.belmond.com/hotels/europe/italy/ravello/belmond-hotel-caruso/',
+        amenities: ['Garden', 'Pool', 'Sea Views', 'Private Terraces', 'Breakfast Included'],
+        image: 'https://wi-web-eiw.s3.eu-west-1.amazonaws.com/exclusiveitaly/images/original/90b6765a-fc62-4ed0-b9b5-7d52843c3dfb/villa-eva-01.jpg',
+        bookingNote: null,
+        website: 'https://www.villa-eva.it/',
     },
     {
-        name: 'Palazzo Avino',
-        category: 'Luxury',
-        description: 'A 12th-century palazzo transformed into an elegant five-star hotel with a Michelin-starred restaurant and stunning terraces.',
+        name: 'Hotel Giordano',
+        category: 'Mid-Luxury',
+        description: 'A charming family-owned hotel in a beautifully restored 19th-century villa, located steps from Ravello\'s main piazza. Features lovely gardens, an outdoor pool, and an excellent restaurant serving traditional Amalfi Coast cuisine.',
         priceRange: '€€€€',
-        distance: '8 min walk to Villa Cimbrone',
-        amenities: ['Private Beach Club', 'Spa', 'Michelin Restaurant', 'Terraces'],
-        image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop',
+        distance: '10 min walk to Villa Cimbrone',
+        amenities: ['Pool', 'Garden', 'Restaurant', 'Terrace', 'Central Location', 'Bar'],
+        image: 'https://www.giordanohotel.it/public/web/gallerie/gf_3wed_clr_0002_16.jpg',
         bookingNote: null,
-        website: 'https://www.palazzoavino.com/',
-    },
-    {
-        name: 'Hotel Villa Fraulo',
-        category: 'Mid-Range',
-        description: 'A charming boutique hotel set in a historic villa with lovely gardens and a pool, offering excellent value in the heart of Ravello.',
-        priceRange: '€€€',
-        distance: '3 min walk to Villa Cimbrone',
-        amenities: ['Pool', 'Garden', 'Restaurant', 'Terrace'],
-        image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&h=400&fit=crop',
-        bookingNote: null,
-        website: 'https://www.villafraulo.com/',
+        website: 'https://www.giordanohotel.it/',
     },
     {
         name: 'Hotel Parsifal',
@@ -70,7 +70,7 @@ const Accommodations = () => {
             <div className={styles.accommodationsContainer}>
                 <div className={styles.intro}>
                     <p>
-                        We recommend staying in Ravello itself for the easiest access to wedding events.
+                        For the night of the wedding recommend staying in Ravello itself for the easiest access to wedding events.
                         The town is small and walkable, and staying nearby means you can fully enjoy the
                         celebration without worrying about transportation. Below are our top recommendations.
                     </p>
@@ -95,6 +95,7 @@ const Accommodations = () => {
                                 </div>
 
                                 <p className={styles.distance}>
+                                    {/* Clock Icon */}
                                     <svg
                                         className={styles.icon}
                                         viewBox="0 0 24 24"
@@ -150,8 +151,8 @@ const Accommodations = () => {
                 <div className={styles.alternativeStays}>
                     <h3 className={styles.alternativeTitle}>Alternative Options</h3>
                     <p className={styles.alternativeText}>
-                        If you prefer to stay in Amalfi or Positano, both towns are accessible by car or bus
-                        (approximately 30-45 minutes). We&apos;ll arrange transportation for wedding events, but
+                        If you prefer to stay in Amalfi, Maiori, Praiano, or  Positano these towns are accessible by car or bus
+                        (approximately 25-45 minutes). We&apos;ll arrange transportation for wedding events, but
                         please let us know in advance so we can plan accordingly.
                     </p>
                 </div>

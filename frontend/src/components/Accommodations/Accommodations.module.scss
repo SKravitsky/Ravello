@@ -68,7 +68,7 @@
     position: absolute;
     top: 1rem;
     left: 1rem;
-    background: vars.$dark-purple;
+    background: vars.$signature-color-dark;
     color: vars.$white;
     font-family: vars.$font-secondary;
     font-size: 0.7rem;
@@ -95,7 +95,7 @@
 
 .hotelName {
     @include mixins.txt-h4;
-    color: vars.$dark-purple;
+    color: vars.$signature-color-dark;
     margin: 0;
 }
 
@@ -140,8 +140,8 @@
     font-family: vars.$font-secondary;
     font-size: 0.7rem;
     font-weight: 500;
-    color: vars.$dark-purple;
-    background: vars.$light-purple;
+    color: vars.$signature-color-dark;
+    background: vars.$signature-color-light;
     padding: 0.25rem 0.6rem;
     border-radius: 4px;
 }
@@ -170,7 +170,7 @@
     font-size: 0.875rem;
     font-weight: 500;
     color: vars.$white;
-    background: vars.$dark-purple;
+    background: vars.$signature-color-dark;
     padding: 0.75rem 1.5rem;
     border-radius: vars.$border-radius-5;
     text-decoration: none;
@@ -178,7 +178,7 @@
     margin-top: auto;
 
     &:hover {
-        background: lighten(vars.$dark-purple, 10%);
+        background: lighten(vars.$signature-color-dark, 10%);
     }
 }
 
@@ -203,7 +203,7 @@
 
 .alternativeTitle {
     @include mixins.txt-h3;
-    color: vars.$dark-purple;
+    color: vars.$signature-color-dark;
     margin: 0 0 1rem;
 }
 
