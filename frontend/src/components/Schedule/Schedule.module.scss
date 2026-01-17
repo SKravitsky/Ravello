@@ -32,6 +32,24 @@
     }
 }
 
+.dayHeaderLeft {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.dayIcon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    opacity: 0.9;
+
+    @media (min-width: vars.$breakpoint-md) {
+        width: 28px;
+        height: 28px;
+    }
+}
+
 .dayDate {
     font-family: vars.$font-secondary;
     font-size: 0.75rem;
@@ -94,6 +112,15 @@
     @media (min-width: vars.$breakpoint-md) {
         text-align: right;
     }
+}
+
+.optionalLabel {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 400;
+    font-style: italic;
+    color: vars.$dark-grey;
+    margin-top: 0.25rem;
 }
 
 .eventContent {
