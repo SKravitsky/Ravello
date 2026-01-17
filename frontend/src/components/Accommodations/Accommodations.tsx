@@ -74,6 +74,9 @@ const Accommodations = () => {
                         The town is small and walkable, and staying nearby means you can fully enjoy the
                         celebration without worrying about transportation. Below are our top recommendations.
                     </p>
+                    <p>
+                        Note: Cars cannot fit near the venue, you will need to walk the last 10 minutes!
+                    </p>
                 </div>
 
                 <div className={styles.hotelsGrid}>
