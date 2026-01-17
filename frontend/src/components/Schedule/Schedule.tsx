@@ -1,6 +1,63 @@
 import Section from '../Section/Section';
 import styles from './Schedule.module.scss';
 
+// Placeholder icons for each day
+const DayIcons: Record<string, React.ReactNode> = {
+    'Wednesday, August 26': (
+        // Suitcase - Welcome/Arrival
+        <svg className={styles.dayIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <rect x="3" y="8" width="18" height="13" rx="2" />
+            <path d="M8 8V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3" />
+            <line x1="12" y1="12" x2="12" y2="16" />
+        </svg>
+    ),
+    'Thursday, August 27': (
+        // Sun - Experience Day
+        <svg className={styles.dayIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+        </svg>
+    ),
+    'Friday, August 28': (
+        // Boat - Capri Day
+        <svg className={styles.dayIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <path d="M2 20c2-1 4-2 6-2s4 1 6 2 4 1 6 0" />
+            <path d="M4 17l1.5-9h13L20 17" />
+            <path d="M12 3v5" />
+            <path d="M8 8l4-2 4 2" />
+        </svg>
+    ),
+    'Saturday, August 29': (
+        // Wine glass - Welcome Dinner
+        <svg className={styles.dayIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <path d="M8 2h8l-1 9a4 4 0 0 1-3 3.5V20h4v2H8v-2h4v-5.5A4 4 0 0 1 9 11l-1-9z" />
+            <path d="M7 6h10" />
+        </svg>
+    ),
+    'Sunday, August 30': (
+        // Clipboard/checklist - Prep & Rehearsal
+        <svg className={styles.dayIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <rect x="5" y="3" width="14" height="18" rx="2" />
+            <path d="M9 3v2a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V3" />
+            <line x1="9" y1="10" x2="15" y2="10" />
+            <line x1="9" y1="14" x2="15" y2="14" />
+        </svg>
+    ),
+    'Monday, August 31': (
+        // Wedding rings - Wedding Day
+        <svg className={styles.dayIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <circle cx="9" cy="12" r="5" />
+            <circle cx="15" cy="12" r="5" />
+        </svg>
+    ),
+    'Tuesday, September 1': (
+        // Heart with wave - Farewell
+        <svg className={styles.dayIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+    ),
+};
+
 const scheduleEvents = [
     {
         day: 'Wednesday, August 26',
@@ -10,7 +67,7 @@ const scheduleEvents = [
                 time: 'Daytime',
                 title: 'Guests Arrive',
                 location: 'Maiori',
-                description: 'Guests arrive via Naples and check into their hotels along the Amalfi Coast.',
+                description: 'Guests arrive in Maiori and check into their hotels along the Amalfi Coast.',
                 dress: 'Casual',
             },
             {
@@ -42,17 +99,19 @@ const scheduleEvents = [
             },
             {
                 time: 'Late Morning',
-                title: 'Optional Activities',
+                title: 'Activities',
                 location: 'Maiori & Surrounding Areas',
                 description: 'Lemon Grove Tour, beach time, or shopping for ceramics and linens in the local shops.',
                 dress: 'Comfortable Walking Attire',
+                optional: true,
             },
             {
                 time: 'Afternoon',
-                title: 'Optional Day Tours',
+                title: 'Day Tours',
                 location: 'Amalfi Coast',
                 description: 'Guest-paid tours available: Positano Tour, Pompeii Tour, or Italian Cooking Class. Contact the wedding planner to reserve your spot.',
                 dress: 'Comfortable',
+                optional: true,
             },
             {
                 time: 'Evening',
@@ -92,8 +151,9 @@ const scheduleEvents = [
                 time: 'Evening',
                 title: 'Free Evening',
                 location: 'Amalfi Coast',
-                description: 'Optional nightlife: Music on the Rocks in Positano or Africana Famous Club in Praiano.',
+                description: 'Nightlife: Music on the Rocks in Positano or Africana Famous Club in Praiano.',
                 dress: 'Smart Casual',
+                optional: true,
             },
         ],
     },
@@ -160,28 +220,28 @@ const scheduleEvents = [
                 title: 'Ceremony',
                 location: 'Garden of Two Fountains, Villa Cimbrone',
                 description: 'Please arrive by 3:30 PM. The ceremony will feature opera singers and violin with stunning views of the Amalfi Coast.',
-                dress: 'Black Tie Optional - Long dresses in soft hues for ladies, formal wear for gentlemen',
+                dress: 'Black Tie - Long dresses in soft hues for ladies, formal wear for gentlemen',
             },
             {
                 time: '5:00 PM',
                 title: 'Cocktail Hour',
                 location: 'Infinity Terrace, Villa Cimbrone',
                 description: 'Champagne, canapes, and acoustic music while capturing golden hour photos on the famous terrace overlooking the Mediterranean.',
-                dress: 'Black Tie Optional',
+                dress: 'Black Tie',
             },
             {
                 time: '7:00 PM',
                 title: 'Reception Dinner',
                 location: 'The Crypt, Villa Cimbrone',
                 description: 'A seated dinner in the atmospheric medieval crypt featuring Italian fine dining with elevated local cuisine, floral and candle-heavy tablescape.',
-                dress: 'Black Tie Optional',
+                dress: 'Black Tie',
             },
             {
                 time: '10:00 PM',
                 title: 'Dancing Under the Stars',
                 location: 'Garden of Two Fountains, Villa Cimbrone',
                 description: 'Live band and DJ on a black and white checkered dance floor. Open bar with signature drinks: Passion Fruit Martini and Limoncello Martini.',
-                dress: 'Black Tie Optional',
+                dress: 'Black Tie',
             },
         ],
     },
@@ -218,14 +278,20 @@ const Schedule = () => {
                 {scheduleEvents.map((day, dayIndex) => (
                     <div key={dayIndex} className={styles.dayCard}>
                         <div className={styles.dayHeader}>
-                            <span className={styles.dayDate}>{day.day}</span>
+                            <div className={styles.dayHeaderLeft}>
+                                {DayIcons[day.day]}
+                                <span className={styles.dayDate}>{day.day}</span>
+                            </div>
                             <h3 className={styles.dayTitle}>{day.title}</h3>
                         </div>
 
                         <div className={styles.eventsList}>
                             {day.events.map((event, eventIndex) => (
                                 <div key={eventIndex} className={styles.event}>
-                                    <div className={styles.eventTime}>{event.time}</div>
+                                    <div className={styles.eventTime}>
+                                        {event.time}
+                                        {event.optional && <span className={styles.optionalLabel}>Optional</span>}
+                                    </div>
                                     <div className={styles.eventContent}>
                                         <h4 className={styles.eventTitle}>{event.title}</h4>
                                         <p className={styles.eventLocation}>

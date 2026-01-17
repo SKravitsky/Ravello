@@ -7,7 +7,7 @@ import styles from './FAQ.module.scss';
 const faqs = [
     {
         question: 'What is the dress code?',
-        answer: 'The wedding ceremony and reception are Black Tie Optional. Ladies: embrace the romance with long dresses in soft hues—consider bringing a shawl for the evening, chunky heels for the garden pathways, and a spare pair of dancing shoes! Gentlemen: formal wear is requested, and an extra collared shirt is not a bad idea as the August sun can be warm. For the Welcome Dinner, think "Dolce Vita" Chic—fun fabrics, vibrant colors, and playful accessories. For the Rehearsal Dinner, Italian Elegance—sophisticated cocktail dresses or tailored suits, no jeans please.',
+        answer: 'The wedding ceremony and reception are Black Tie. Ladies: embrace the romance with long dresses in soft hues—consider bringing a shawl for the evening, chunky heels for the garden pathways, and a spare pair of dancing shoes! Gentlemen: formal wear is requested, and an extra collared shirt is not a bad idea as the August sun can be warm. For the Welcome Dinner, think "Dolce Vita" Chic—fun fabrics, vibrant colors, and playful accessories. For the Rehearsal Dinner, Italian Elegance—sophisticated cocktail dresses or tailored suits, no jeans please.',
     },
     {
         question: 'When should I RSVP by?',

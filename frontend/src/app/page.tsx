@@ -26,7 +26,13 @@ export default function Home() {
                     <p className={styles.preTitle}>Together with their families</p>
 
                     <h1 className={styles.coupleNames}>
-                        Viktoryia <span className={styles.ampersand}>&</span> Steven
+                        Viktoryia
+                    </h1>
+                    <h1 className={styles.coupleNames}>
+                        <span className={styles.ampersand}>&</span>
+                    </h1>
+                    <h1 className={styles.coupleNames}>
+                         Steven
                     </h1>
 
                     <div className={styles.divider}>
@@ -43,6 +49,7 @@ export default function Home() {
                     <div className={styles.details}>
                         <div className={styles.date}>
                             <span className={styles.dateDay}>31</span>
+                            <span className={styles.dateSuper}>st</span>
                             <div className={styles.dateMonthYear}>
                                 <span>August</span>
                                 <span>2026</span>

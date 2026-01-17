@@ -11,6 +11,7 @@ interface RSVPModalProps {
 
 type AttendanceStatus = '' | 'yes' | 'no';
 type AttendanceDate = '' | 'Wed, August 26th' | 'Fri, August 28th';
+type boatStatus = '' | 'yes' | 'no';
 
 export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
     const [name, setName] = useState('');
@@ -22,6 +23,7 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
     const [dietaryRestrictions, setDietaryRestrictions] = useState('');
     const [songRequest, setSong] = useState('');
     const [message, setMessage] = useState('');
+    const [boat, setBoat] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
     const modalRef = useRef<HTMLDivElement>(null);
@@ -62,6 +64,7 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
         setDietaryRestrictions('');
         setSong('');
         setMessage('');
+        setBoat('');
         setSubmitStatus('idle');
     };
 
@@ -89,6 +92,7 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
             dietaryRestrictions,
             songRequest,
             message,
+            boat,
         };
 
         // Add guest names to form data
@@ -306,6 +310,35 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
                                             onChange={(e) => setAttendanceDate(e.target.value as AttendanceDate)}
                                         />
                                         <span>Fri, August 28th</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div className={styles.formGroup}>
+                                <label className={styles.label}>
+                                    Will you be attending the boat tour on Saturday, August 29th?
+                                </label>
+                                <div className={styles.radioGroup}>
+                                    <label className={styles.radioLabel}>
+                                        <input
+                                            type="radio"
+                                            name="boat"
+                                            value="yes"
+                                            checked={boat === 'yes'}
+                                            onChange={(e) => setBoat(e.target.value as boatStatus)}
+                                            required
+                                        />
+                                        <span>Yes</span>
+                                    </label>
+                                    <label className={styles.radioLabel}>
+                                        <input
+                                            type="radio"
+                                            name="boat"
+                                            value="no"
+                                            checked={boat === 'no'}
+                                            onChange={(e) => setBoat(e.target.value as boatStatus)}
+                                        />
+                                        <span>No</span>
                                     </label>
                                 </div>
                             </div>

@@ -24,14 +24,67 @@
     justify-content: center;
 }
 
+.carouselContainer {
+    position: relative;
+}
+
+.carouselArrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(vars.$white, 0.85);
+    color: vars.$signature-color-dark;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: vars.$light-shadow;
+
+    &:hover {
+        background: vars.$white;
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    &:active {
+        transform: translateY(-50%) scale(0.95);
+    }
+
+    @media (min-width: vars.$breakpoint-md) {
+        width: 44px;
+        height: 44px;
+        font-size: 1.75rem;
+    }
+}
+
+.arrowLeft {
+    left: 0.75rem;
+}
+
+.arrowRight {
+    right: 0.75rem;
+}
+
 .imageWrapper {
     position: relative;
-    max-width: 400px;
-    width: 100%;
-    aspect-ratio: 4 / 5;
+    width: 300px;
+    height: 375px;
+    flex-shrink: 0;
+
+    @media (min-width: vars.$breakpoint-md) {
+        width: 400px;
+        height: 500px;
+    }
 
     @media (min-width: vars.$breakpoint-lg) {
-        max-width: 500px;
+        width: 500px;
+        height: 625px;
     }
 
     &::before {
@@ -47,12 +100,18 @@
 }
 
 .storyImage {
-    position: relative;
+    position: absolute;
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
     z-index: 1;
     box-shadow: vars.$light-shadow;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+
+    &.active {
+        opacity: 1;
+    }
 }
 
 .textColumn {
