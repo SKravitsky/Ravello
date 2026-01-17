@@ -254,8 +254,8 @@
 .toursInfo {
     margin-bottom: 2.5rem;
     padding: 1.5rem;
-    background: rgba(vars.$signature-color-light, 0.15);
-    border-radius: 8px;
+    // background: rgba(vars.$signature-color-light, 0.15);
+    // border-radius: 8px;
 }
 
 .toursText {
@@ -269,9 +269,10 @@
 .contactCard {
     background: vars.$white;
     border: 1px solid vars.$medium-grey;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 2rem;
-    margin-bottom: 2.5rem;
+    margin-top: 1rem;
+    // margin-bottom: 2.5rem;
 }
 
 .contactIntro {
