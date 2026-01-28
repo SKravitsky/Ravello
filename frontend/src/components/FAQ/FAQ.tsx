@@ -23,7 +23,7 @@ const faqs = [
     },
     {
         question: 'Will transportation be provided?',
-        answer: 'Yes! We will provide pickup from Naples Airport to your first hotel as a courtesy for traveling. For guests staying at other accommodations, please let us know and we\'ll help coordinate transportation.',
+        answer: 'We will do our best to provide pickup from Naples Airport to Maiori. For guests staying at other accommodations, please let us know and we\'ll help coordinate transportation.',
     },
     {
         question: 'What is the weather like in late August?',

@@ -1,3 +1,4 @@
+import { Mountains_of_Christmas } from 'next/font/google';
 import Section from '../Section/Section';
 import styles from './Schedule.module.scss';
 
@@ -61,27 +62,27 @@ const DayIcons: Record<string, React.ReactNode> = {
 const scheduleEvents = [
     {
         day: 'Wednesday, August 26',
-        title: 'Welcome to the Amalfi Coast',
+        title: 'Benvenuti in Italia!',
         events: [
             {
                 time: 'Daytime',
-                title: 'Guests Arrive',
+                title: 'Benvenuti ',
                 location: 'Maiori',
-                description: 'Guests arrive in Maiori and check into their hotels along the Amalfi Coast.',
+                description: 'Guests arrive in Maiori and check into their hotels along the Amalfi Coast. We have a room block at Hotel due Torri. Hope you can join us there! If not there are many hotels within walking distance',
                 dress: 'Casual',
             },
             {
                 time: 'Afternoon',
                 title: 'Free Time',
                 location: 'Maiori',
-                description: 'Explore a beach club, wander around town, or enjoy espresso and pastries by the piazza.',
+                description: 'Explore a beach club, wander around town, or enjoy espresso and pastries by the piazza. Do not forget to explore Minori which is the next town over!',
                 dress: 'Casual',
             },
             {
-                time: '6:00 PM',
+                time: '7:00 PM',
                 title: 'Welcome Aperitivo',
                 location: 'Hotel Due Torri Terrace',
-                description: 'A light, festive welcome drinks with stunning ocean views. A short welcome toast to kick off the celebrations!',
+                description: 'Gather for a welcome toast with us on the Hotel Due Torri Terrace to kick off the celebration!',
                 dress: 'Smart Casual',
             },
         ],
@@ -127,7 +128,7 @@ const scheduleEvents = [
         title: 'Private Boat Day to Capri',
         events: [
             {
-                time: '9:00 AM',
+                time: 'Morning',
                 title: 'Depart for Capri',
                 location: 'Maiori Harbor',
                 description: 'Board our private boat for an unforgettable day trip to Capri. Seeing the island from the sea is truly magical!',
@@ -144,7 +145,7 @@ const scheduleEvents = [
                 time: '5:00 PM',
                 title: 'Return to Shore',
                 location: 'Maiori Harbor',
-                description: 'Return from our boat adventure with sun-kissed memories. This often becomes guests\' favorite day!',
+                description: 'Return from our boat adventure with sun-kissed memories.',
                 dress: 'Resort Casual',
             },
             {
@@ -159,7 +160,7 @@ const scheduleEvents = [
     },
     {
         day: 'Saturday, August 29',
-        title: 'Welcome Dinner',
+        title: 'Welcome Soirée',
         events: [
             {
                 time: 'Daytime',
@@ -170,16 +171,16 @@ const scheduleEvents = [
             },
             {
                 time: '7:00 PM',
-                title: 'Welcome Dinner',
-                location: 'Hotel Due Torri Terrace, Maiori',
-                description: 'Pizza, pasta, and mozzarella making under the stars with breathtaking ocean views. Spritz bar, gelato bar, tambourines, and Italian fun!',
+                title: 'Welcome Soirée',
+                location: 'Hotel Due Torri, Maiori',
+                description: 'Let the celebrations begin! Please join us for a welcome soirée Italian-style, think sunset views, spritzes in hand, and effortless elegance. Come mingle, unwind, and ease into the weekend as we celebrate with good company, great wine, and la dolce vita.',
                 dress: '"Dolce Vita" Chic - Fun fabrics, vibrant colors, playful accessories!',
             },
         ],
     },
     {
         day: 'Sunday, August 30',
-        title: 'Ravello Prep + Rehearsal',
+        title: 'CIAO Ravello! + Rehearsal',
         events: [
             {
                 time: 'Morning',
@@ -192,7 +193,7 @@ const scheduleEvents = [
                 time: 'Afternoon',
                 title: 'Check-in to Villa Cimbrone',
                 location: 'Villa Cimbrone, Ravello',
-                description: 'Wedding party and close family check into Villa Cimbrone for the wedding festivities.',
+                description: 'Check-in to your Ravello Hotel. We will be staying at the wedding venue, Villa Cimbrone. But, there are plenty hotels just a walk away.',
                 dress: 'Casual',
             },
             {
@@ -219,7 +220,7 @@ const scheduleEvents = [
                 time: '4:00 PM',
                 title: 'Ceremony',
                 location: 'Garden of Two Fountains, Villa Cimbrone',
-                description: 'Please arrive by 3:30 PM. The ceremony will feature opera singers and violin with stunning views of the Amalfi Coast.',
+                description: 'Please arrive by 3:30 PM. Our ceremony will be held at the iconic Villa Cimbrone in Ravello—an extraordinary place suspended between sky and sea. With the gardens in bloom and the coast stretching endlessly below, we will say our vows surrounded by beauty, history, and the people we love the most.',
                 dress: 'Black Tie - Long dresses in soft hues for ladies, formal wear for gentlemen',
             },
             {
@@ -233,27 +234,27 @@ const scheduleEvents = [
                 time: '7:00 PM',
                 title: 'Reception Dinner',
                 location: 'The Crypt, Villa Cimbrone',
-                description: 'A seated dinner in the atmospheric medieval crypt featuring Italian fine dining with elevated local cuisine, floral and candle-heavy tablescape.',
+                description: 'A seated dinner in the atmospheric medieval crypt featuring Italian fine dining with elevated local cuisine.',
                 dress: 'Black Tie',
             },
             {
                 time: '10:00 PM',
                 title: 'Dancing Under the Stars',
                 location: 'Garden of Two Fountains, Villa Cimbrone',
-                description: 'Live band and DJ on a black and white checkered dance floor. Open bar with signature drinks: Passion Fruit Martini and Limoncello Martini.',
+                description: 'Dinner, then dancing under the stars—because what happens in Italia, stays in Italia!',
                 dress: 'Black Tie',
             },
         ],
     },
     {
         day: 'Tuesday, September 1',
-        title: 'Farewell Brunch',
+        title: 'Arrivederci!',
         events: [
             {
                 time: '11:00 AM',
                 title: 'Farewell Brunch',
                 location: 'Villa Maria Restaurant, Ravello',
-                description: 'Fresh fruit, pastries, eggs and focaccia, mimosas and cappuccinos. A thank-you toast to close the weekend with warmth and connection.',
+                description: 'Please join us for a farewell brunch as we say arrivederci and celebrate one final time together.',
                 dress: 'Smart Casual',
             },
             {

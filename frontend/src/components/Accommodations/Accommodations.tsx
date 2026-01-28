@@ -47,42 +47,31 @@ const ravelloHotels: Hotel[] = [
         bookingNote: null,
         website: 'https://www.giordanohotel.it/',
     },
+    {
+        name: 'Hotel Parsifal',
+        category: 'Mid-Range',
+        description: 'A charming, family-run hotel set in a converted 13th-century convent perched above the Amalfi Coast. With panoramic sea and valley views, beautifully restored cloisters, floral gardens, and traditional Mediterranean ambience, it is just a short stroll from the main Ravello piazza and cultural highlights like Villa Rufolo and Villa Cimbrone.',
+        priceRange: '€€€',
+        distance: '15 min walk to Villa Cimbrone',
+        amenities: ['Sea & Valley Views', 'Historic Cloister Garden', 'Bar & Terrace'],
+        image: 'https://hotelparsifal.it/images//slide/chiostro-home.jpg',
+        bookingNote: null,
+        website: 'https://hotelparsifal.it/en/',
+    },
 ];
 
 const maioriHotels: Hotel[] = [
     {
         name: 'Hotel Club Due Torri',
-        category: 'Mid-Luxery',
+        category: 'Mid-Luxury',
         description: 'A scenic cliffside hotel on the Amalfi Coast with panoramic sea views just steps from Maiori’s sandy beach. Spacious rooms (many with private balconies) overlook the Tyrrhenian Sea, and the property combines relaxed Mediterranean charm with easy access to town and coastal highlights. It is our accommodation for the start of the trip!',
         priceRange: '€€€',
         distance: 'Approx. 3–5 min walk to Maiori Beach and town centre',
         amenities: ['Beach Access', 'Panoramic Sea Views', 'Restaurant', 'Bar', 'Swimming Pool'],
         image: 'https://www.hotel2torri.com/wp-content/uploads/2019/06/es1.jpg',
-        bookingNote: 'Our accommodation for the start of the trip',
+        bookingNote: 'This is where we have a wedding block',
         website: 'https://www.hotel2torri.com',
-    },
-    {
-        name: 'TBD',
-        category: 'TBD',
-        description: 'We\'re still researching great options in Maiori. If you have suggestions for hotels in the area, please let us know!',
-        priceRange: '€€',
-        distance: 'TBD',
-        amenities: ['Suggestions Welcome'],
-        image: 'https://www.pngkey.com/png/detail/360-3608307_placeholder-hotel-house.png',
-        bookingNote: 'Looking for recommendations',
-        website: '#',
-    },
-    {
-        name: 'TBD',
-        category: 'TBD',
-        description: 'We\'re still researching great options in Maiori. If you have suggestions for hotels in the area, please let us know!',
-        priceRange: '€€',
-        distance: 'TBD',
-        amenities: ['Suggestions Welcome'],
-        image: 'https://www.pngkey.com/png/detail/360-3608307_placeholder-hotel-house.png',
-        bookingNote: 'Looking for recommendations',
-        website: '#',
-    },
+    }
 ];
 
 const HotelCard = ({ hotel }: { hotel: Hotel }) => (
@@ -173,7 +162,7 @@ const Accommodations = () => {
                             celebration without worrying about transportation.
                         </p>
                         <p>
-                            Note: Cars cannot fit near the venue, you will need to walk the last 10 minutes!
+                            Please note that cars are unable to access Villa Cimbrone. Guests will reach the venue on foot via a scenic walk; comfortable footwear is recommended.
                         </p>
                     </div>
 
@@ -194,7 +183,7 @@ const Accommodations = () => {
                             the busier tourist spots.
                         </p>
                         <p>
-                            We're still looking for more hotel suggestions in this area — if you have recommendations, please let us know!
+                            Note: Maiori has its own ferry terminal so getting around is easy!
                         </p>
                     </div>
 
@@ -209,8 +198,7 @@ const Accommodations = () => {
                     <h3 className={styles.alternativeTitle}>Alternative Stay Options</h3>
                     <p className={styles.alternativeText}>
                         If you prefer to stay in Amalfi, Praiano, or Positano these towns are accessible by car or bus
-                        (approximately 25-45 minutes). We will help arrange transportation for wedding events, but
-                        please let us know in advance so we can plan accordingly.
+                        (approximately 25-45 minutes).
                     </p>
                 </div>
             </div>
