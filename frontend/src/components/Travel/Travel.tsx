@@ -29,7 +29,7 @@ const transportOptions = [
         ),
         description: 'We highly recommend booking a private transfer from the airport. The winding Amalfi Coast roads are best navigated by experienced local drivers.',
         price: '~€120-150 from Naples Airport',
-        recommendation: 'We can help arrange this - contact us!',
+        recommendation: 'We can help arrange this - contact Maryla for more details!',
     },
     {
         title: 'SITA Bus',
