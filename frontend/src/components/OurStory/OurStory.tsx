@@ -41,7 +41,7 @@ const OurStory = () => {
         <Section
             id="our-story"
             title="Our Story"
-            subtitle="How two hearts found each other"
+            // subtitle="How two hearts found each other"
             variant="alternate"
         >
             <div className={styles.storyContainer}>
@@ -62,6 +62,7 @@ const OurStory = () => {
                                         src={image.src}
                                         alt={image.alt}
                                         fill
+                                        sizes="(max-width: 768px) 300px, (max-width: 1024px) 400px, 500px"
                                         className={`${styles.storyImage} ${index === currentImageIndex ? styles.active : ''}`}
                                     />
                                 ))}
@@ -84,12 +85,12 @@ const OurStory = () => {
                                 gathered at Steven&apos;s apartment in Jersey City before heading out dancing in
                                 Manhattan. On the walk back from the Meatpacking District to One World Trade
                                 Center, Steven and Viktoryia talked the entire way. They continued talking
-                                constantly until their first date, an EDM concert in Brooklyn.
+                                constantly until their first date, a concert in Brooklyn.
                             </p>
 
                             <h3 className={styles.chapterTitle}>The Proposal</h3>
                             <p className={styles.storyText}>
-                                Two of the couples friends, Dennis and Jenn Rupp, had invited us and Matt West to an Airbnb in
+                                Two of the couple&apos;s friends, Dennis and Jenn Rupp, had invited us and Matt West to an Airbnb in
                                 Napa Valley, California after one of their friends supposedly cancelled. Since
                                 Viktoryia and Steven were members of a wine club at Sequoia Grove, they decided
                                 to go wine tasting there while everyone else went on a &quot;hike.&quot; Little did
