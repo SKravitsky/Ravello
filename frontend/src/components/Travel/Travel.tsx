@@ -4,14 +4,14 @@ import styles from './Travel.module.scss';
 const airports = [
     {
         name: 'Naples International Airport (NAP)',
-        distance: '~65 km / 1.5-2 hours to Ravello',
+        distance: '~65 km / 1.5-2 hours to Ravello/Maiori',
         description: 'The closest major airport with direct flights from many European cities and connections from the US.',
         recommended: true,
     },
     {
         name: 'Rome Fiumicino Airport (FCO)',
-        distance: '~300 km / 3.5-4 hours to Ravello',
-        description: 'Italy\'s largest airport with the most international connections. Consider taking the high-speed train to Naples, then transfer to Ravello.',
+        distance: '~300 km / 3.5-4 hours to Ravello/Maiori',
+        description: 'Italy\'s largest airport with the most international connections. Consider taking the high-speed train to Naples, then transfer to Ravello or Maiori.',
         recommended: false,
     },
 ];
@@ -129,8 +129,8 @@ const Travel = () => {
                                     <line x1="3" y1="10" x2="21" y2="10" />
                                 </svg>
                             </div>
-                            <h4>Arrive a Day Early</h4>
-                            <p>We recommend arriving by Friday, August 28 to settle in and recover from jet lag before the festivities begin.</p>
+                            <h4>Arrive Early</h4>
+                            <p>We recommend arriving by Wednesday, August 26 to settle in and recover from jet lag before the festivities begin.</p>
                         </div>
                         <div className={styles.tipCard}>
                             <div className={styles.tipIcon}>

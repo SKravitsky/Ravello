@@ -60,18 +60,20 @@ const Welcome = () => {
             <div className={styles.welcomeContainer}>
                 <div className={styles.messageContent}>
                     <p className={styles.greeting}>
-                        We are so excited to celebrate with you in Italy and feel increidbly lucky to have you there. 
-                        Thank you for making the journey to be part of such a special moment in our lives.
+                        We are so excited to celebrate with you in Italy and feel incredibly lucky to have you there. 
+                        Thank you for making the journey to be part of such a special moment in our lives as 
+                        it truly means the world to us to share this with the people we love most.
                         </p>
                     <p className={styles.greeting}>
-                        The Amalfi Coast is our favorite place, one we cherish the most, and we
-                        can&apos;t wait to spend time in such a special location with all of our loved ones.
+                        The Amalfi Coast has always been a dream destination for us. Experiencing such a beautiful, historic place feels even more meaningful knowing we get to do it 
+                        surrounded by friends and family. We can&apos;t wait to take in the views, food, and magic of the coast together.
                     </p>
                     <p className={styles.greeting}>
-                        We have coordinated day trips for you while on the Amalfi Coast, including
-                        tours to Positano, Capri, and cooking classes. Unfortunately, we
-                        won&apos;t be able to attend all of these tours with you as we have lots to do
-                        in the days leading up to the wedding!
+                        We&apos;ve planned a number of optional day trips and experiences throughout the week, including visits to Positano and Capri. 
+                        We&apos;re so excited about these events and plan to join as many as we can, though we may not be able to attend every outing as we juggle wedding festivities and final preparations. 
+                    </p>
+                    <p className={styles.greeting}>
+                        No matter what, we hope you enjoy exploring the Amalfi Coast at your own pace and making unforgettable memories along the way.
                     </p>
                 </div>
 

@@ -6,6 +6,21 @@
     margin: 0 auto;
 }
 
+.locationSection {
+    margin-bottom: 4rem;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+.locationTitle {
+    @include mixins.txt-h2;
+    color: vars.$signature-color-dark;
+    text-align: center;
+    margin: 0 0 1.5rem;
+}
+
 .intro {
     max-width: 700px;
     margin: 0 auto 3rem;
