@@ -272,7 +272,7 @@ const Schedule = () => {
         <Section
             id="schedule"
             title="Wedding Schedule"
-            subtitle="Join us for a weekend of celebration"
+            subtitle="Join us for an Italian celebration"
         >
             <div className={styles.scheduleContainer}>
                 {scheduleEvents.map((day, dayIndex) => (

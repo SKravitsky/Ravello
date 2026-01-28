@@ -11,7 +11,7 @@ const faqs = [
     },
     {
         question: 'When should I RSVP by?',
-        answer: 'Please RSVP by June 1, 2026. This gives us enough time to finalize arrangements with our vendors. We need accurate headcounts for catering, seating, and transportation.',
+        answer: 'Please RSVP as soon as you can with the last day to respond being June 1, 2026. This gives us enough time to finalize arrangements with our vendors. We need accurate headcounts for catering, seating, and transportation.',
     },
     {
         question: 'Can I bring a plus one?',
@@ -23,7 +23,7 @@ const faqs = [
     },
     {
         question: 'Will transportation be provided?',
-        answer: 'Yes! We will provide pickup from Naples Airport to your first destination as a courtesy for traveling. We will also provide shuttle service between accommodations and Villa Cimbrone for wedding events. For guests staying at other accommodations, please let us know and we\'ll help coordinate transportation.',
+        answer: 'Yes! We will provide pickup from Naples Airport to your first hotel as a courtesy for traveling. For guests staying at other accommodations, please let us know and we\'ll help coordinate transportation.',
     },
     {
         question: 'What is the weather like in late August?',
@@ -43,7 +43,7 @@ const faqs = [
     },
     {
         question: 'How do I book tours or get help with accommodations?',
-        answer: 'Our wonderful wedding planner Maryla Colandrea can assist with booking accommodations, transportation, tours, or answer any questions. Contact her at info@artofperfectionevents.com with your details. We\'ve coordinated optional day trips including Positano, Capri, Pompeii, and cooking classes.',
+        answer: 'Our wonderful wedding planner Maryla Colandrea can assist with booking accommodations, transportation, tours, or answer any questions. Contact her at info@artofperfectionevents.com with your details.',
     },
     {
         question: 'Is there a gift registry?',
@@ -63,7 +63,7 @@ const faqs = [
     },
     {
         question: 'What if I have more questions?',
-        answer: 'We\'re here to help! Feel free to reach out to us directly at wedding@stevenandvika.com, or contact our wedding planner Maryla at info@artofperfectionevents.com. We want to make sure you have all the information you need for a wonderful trip!',
+        answer: 'We\'re here to help! Feel free to reach out to contact our wedding planner Maryla at info@artofperfectionevents.com. We want to make sure you have all the information you need for a wonderful trip!',
     },
 ];
 
@@ -115,7 +115,18 @@ const FAQ = () => {
                 <div className={styles.contactBox}>
                     <h3>Still have questions?</h3>
                     <p>We&apos;re happy to help with anything you need.</p>
-                    <a href="mailto:wedding@stevenandvika.com" className={styles.contactButton}>
+                    <a
+                        href="mailto:info@artofperfectionevents.com?subject=Question%20-%20Vika%20%26%20Steven%20Wedding"
+                        className={styles.contactButton}
+                        // onClick={(e) => handleMailto(e, 'info@artofperfectionevents.com', 'Question - Vika & Steven Wedding')}
+                    >
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                        info@artofperfectionevents.com
+                    </a>
+                    {/* <a href="mailto:" className={styles.contactButton}>
                         <svg
                             viewBox="0 0 24 24"
                             fill="none"
@@ -126,7 +137,7 @@ const FAQ = () => {
                             <polyline points="22,6 12,13 2,6" />
                         </svg>
                         Email Us
-                    </a>
+                    </a> */}
                 </div>
             </div>
         </Section>

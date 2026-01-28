@@ -135,6 +135,7 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
                 <div className={styles.successMessage}>
                     <h2 className={styles.title}>Thank You!</h2>
                     <p className={styles.subtitle}>Your RSVP has been received.</p>
+                    <p className={styles.subtitle}>Please check back here regularly for any updates!.</p>
                     <button className={styles.button} onClick={handleClose}>
                         Close
                     </button>
