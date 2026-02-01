@@ -7,8 +7,12 @@ import styles from './OurStory.module.scss';
 
 // Add more photos here - just add the path and alt text
 const CAROUSEL_IMAGES = [
-    { src: '/images/napa_vineyard.jpeg', alt: 'Couple at Napa vineyard' },
-    { src: '/images/belarus.jpg', alt: 'Couple in Belarus' },
+    { src: '/images/napa_vineyard.jpeg', alt: 'Steven and Viktoryia at Sequoia Grove vineyard in Napa Valley where they got engaged'},
+    { src: '/images/hallway.png', alt: 'Steven and Viktoryia together in an elegant hallway'},
+    { src: '/images/lobby.jpeg', alt: 'Steven and Viktoryia in a grand hotel lobby'},
+    { src: '/images/outside.jpeg', alt: 'Steven and Viktoryia outdoors together'},
+    { src: '/images/presents.jpeg', alt: 'Steven and Viktoryia celebrating with presents'},
+    { src: '/images/spotlight.png', alt: 'Steven and Viktoryia in the spotlight'},
 ];
 
 const ROTATION_INTERVAL_MS = 5000; // Change image every 5 seconds

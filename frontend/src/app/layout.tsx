@@ -19,7 +19,7 @@ const fontSecondary = Montserrat({
 });
 
 export const metadata: Metadata = {
-    title: "Steven & Vika | August 31, 2026 | Ravello, Italy",
+    title: "Viktoryia & Steven | August 31, 2026 | Ravello, Italy",
     description: "Join us for our wedding celebration at Villa Cimbrone in Ravello, Italy on August 31, 2026.",
 };
 
