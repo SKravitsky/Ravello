@@ -1,0 +1,72 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mixins;
+
+.attireContainer {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.intro {
+    @include mixins.txt-body-1;
+    text-align: center;
+    color: vars.$dark-grey;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.attireGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.attireCard {
+    background: vars.$white;
+    border-radius: vars.$border-radius-10;
+    padding: 1.5rem;
+    box-shadow: vars.$light-shadow;
+    border: 1px solid vars.$medium-grey;
+    scroll-margin-top: 80px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+    &:target {
+        box-shadow: 0 0 0 2px vars.$signature-color-dark;
+    }
+
+    @media (min-width: vars.$breakpoint-md) {
+        padding: 2rem;
+    }
+}
+
+.attireName {
+    @include mixins.txt-h4;
+    color: vars.$signature-color-dark;
+    margin: 0 0 0.75rem;
+    font-size: 1.50rem;
+    font-weight: 700;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid vars.$light-grey;
+}
+
+.attireDescription {
+    @include mixins.txt-body-2;
+    color: vars.$dark-grey;
+    margin: 0 0 1rem;
+    line-height: 1.6;
+}
+
+.attireExamples {
+    font-family: vars.$font-secondary;
+    font-size: 0.875rem;
+    color: vars.$dark-grey;
+    margin: 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid vars.$light-grey;
+}
+
+.examplesLabel {
+    font-weight: 600;
+    color: vars.$signature-color-dark;
+}

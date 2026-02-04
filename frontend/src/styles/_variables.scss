@@ -12,6 +12,7 @@ $breakpoint-sm: 600px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
+$breakpoint-tablet: 1025px; // For hamburger menu on tablets including iPad Pro (1024px)
 
 /* Colors */
 $black: #000000;
@@ -24,12 +25,17 @@ $dark-purple: #442f48;
 $light-purple: #c5adc9;
 $light-pink: #ffb6c1;
 $dark-pink: #ff687e;
-$burnt-orange: #ea7e5d;
+$burnt-orange: #CD6839  ;
 $teal: #50c1af;
 $light-teal: #c4eae4;
-$cream: #FFEFDD;
-$signature-color-dark: #442f48;
-$signature-color-light: #c5adc9;
+$cream: #FFF9F5;
+$signature-color-dark: #1E5090;
+// $signature-color-dark: #442f48;
+$signature-color-light: #FBE5A0;
+$signature-color-hover: #4A8ACA;
+$signature-color-neon: #FFFF00;
+
+ 
 
 /* Shadows */
 $light-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
@@ -51,3 +57,10 @@ $background-overlay: rgba(0, 0, 0, 0.25);
 $transition-fade:
     visibility 0.25s ease-in-out,
     opacity 0.25s ease-in-out;
+
+
+
+// $cream: #FFEFDD;
+// $signature-color-dark: #442f48;
+// $signature-color-light: #c5adc9;
+// $burnt-orange: #ea7e5d;

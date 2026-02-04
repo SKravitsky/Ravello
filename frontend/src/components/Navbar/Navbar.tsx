@@ -9,6 +9,7 @@ const navLinks = [
     { href: '#welcome', label: 'Welcome' },
     { href: '#our-story', label: 'Our Story' },
     { href: '#schedule', label: 'Schedule' },
+    { href: '#attire', label: 'Attire' },
     { href: '#accommodations', label: 'Accommodations' },
     { href: '#travel', label: 'Travel' },
     { href: '#things-to-do', label: 'Things To Do' },
@@ -22,7 +23,7 @@ export default function Navbar() {
     // Close drawer when window is resized to desktop size
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth >= 768) {
+            if (window.innerWidth >= 1025) {
                 setIsDrawerOpen(false);
             }
         };

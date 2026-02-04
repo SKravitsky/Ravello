@@ -3,6 +3,7 @@ import RSVPButton from "@/components/RSVPButton/RSVPButton";
 import OurStory from "@/components/OurStory/OurStory";
 import Welcome from "@/components/Welcome/Welcome";
 import Schedule from "@/components/Schedule/Schedule";
+import Attire from "@/components/Attire/Attire";
 import Accommodations from "@/components/Accommodations/Accommodations";
 import Travel from "@/components/Travel/Travel";
 import ThingsToDo from "@/components/ThingsToDo/ThingsToDo";
@@ -74,6 +75,7 @@ export default function Home() {
             <Welcome />
             <OurStory />
             <Schedule />
+            <Attire />
             <Accommodations />
             <Travel />
             <ThingsToDo />
