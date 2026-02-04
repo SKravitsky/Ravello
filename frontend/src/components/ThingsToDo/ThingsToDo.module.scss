@@ -71,7 +71,8 @@
     position: absolute;
     bottom: 1rem;
     left: 1rem;
-    background: rgba(68, 47, 72, 0.9);
+    // background: rgba(68, 47, 72, 0.9);
+    background: vars.$signature-color-dark;
     color: vars.$white;
     font-family: vars.$font-secondary;
     font-size: 0.7rem;

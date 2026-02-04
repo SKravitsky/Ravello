@@ -306,22 +306,36 @@
 .contactButton {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     color: vars.$signature-color-dark;
     text-decoration: none;
     font-family: vars.$font-secondary;
-    font-size: 0.9375rem;
-    padding: 0.75rem 1.25rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.05em;
+    padding: 0.625rem 1rem;
     border: 1px solid vars.$signature-color-light;
     border-radius: 6px;
     transition: all 0.3s ease;
     cursor: pointer;
+    max-width: 100%;
+
+    @media (min-width: vars.$breakpoint-md) {
+        font-size: 0.9375rem;
+        letter-spacing: normal;
+        padding: 0.75rem 1.25rem;
+    }
 
     svg {
-        width: 18px;
-        height: 18px;
+        width: 16px;
+        height: 16px;
         flex-shrink: 0;
         pointer-events: none;
+
+        @media (min-width: vars.$breakpoint-md) {
+            width: 18px;
+            height: 18px;
+        }
     }
 
     &:hover {

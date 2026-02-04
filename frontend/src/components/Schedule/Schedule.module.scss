@@ -52,7 +52,7 @@
 
 .dayDate {
     font-family: vars.$font-secondary;
-    font-size: 0.75rem;
+    font-size: 0.80rem;
     font-weight: 500;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -166,4 +166,12 @@
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
     letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+        background: darken(vars.$signature-color-light, 5%);
+        transform: translateY(-1px);
+    }
 }

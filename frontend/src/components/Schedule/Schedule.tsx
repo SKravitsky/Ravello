@@ -1,15 +1,46 @@
-import { Mountains_of_Christmas } from 'next/font/google';
+'use client';
+
 import Section from '../Section/Section';
 import styles from './Schedule.module.scss';
+
+// Map dress code text to attire section anchor IDs
+const getDressCodeAnchor = (dress: string): string => {
+    const dressLower = dress.toLowerCase();
+    if (dressLower.includes('dolce vita')) return 'dolce-vita-chic';
+    if (dressLower.includes('costal chic')) return 'costal-chic';
+    if (dressLower.includes('black tie')) return 'black-tie';
+    if (dressLower.includes('resort casual') && dressLower.includes('swimwear')) return 'resort-casual-swimwear';
+    if (dressLower.includes('smart casual')) return 'smart-casual';
+    if (dressLower.includes('comfortable walking')) return 'comfortable-walking-attire';
+    if (dressLower.includes('travel comfortable')) return 'travel-comfortable';
+    if (dressLower === 'relaxed') return 'relaxed';
+    return '';
+};
+
+const handleDressCodeClick = (e: React.MouseEvent<HTMLAnchorElement>, anchor: string) => {
+    e.preventDefault();
+    const element = document.getElementById(anchor);
+    if (element) {
+        const headerOffset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    }
+};
 
 // Placeholder icons for each day
 const DayIcons: Record<string, React.ReactNode> = {
     'Wednesday, August 26': (
         // Suitcase - Welcome/Arrival
         <svg className={styles.dayIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <rect x="3" y="8" width="18" height="13" rx="2" />
-            <path d="M8 8V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3" />
-            <line x1="12" y1="12" x2="12" y2="16" />
+            <rect x="5" y="6" width="14" height="14" rx="2" />
+            <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+            <line x1="9" y1="2" x2="9" y2="3" />
+            <circle cx="8" cy="22" r="1" />
+            <circle cx="16" cy="22" r="1" />
         </svg>
     ),
     'Thursday, August 27': (
@@ -69,20 +100,27 @@ const scheduleEvents = [
                 title: 'Benvenuti ',
                 location: 'Maiori',
                 description: 'Guests arrive in Maiori and check into their hotels along the Amalfi Coast. We have a room block at Hotel due Torri. Hope you can join us there! If not there are many hotels within walking distance',
-                dress: 'Casual',
+                dress: 'Travel Comfortable',
             },
             {
                 time: 'Afternoon',
                 title: 'Free Time',
                 location: 'Maiori',
                 description: 'Explore a beach club, wander around town, or enjoy espresso and pastries by the piazza. Do not forget to explore Minori which is the next town over!',
-                dress: 'Casual',
+                dress: 'Smart Casual',
             },
             {
-                time: '7:00 PM',
+                time: '6:30 PM',
                 title: 'Welcome Aperitivo',
                 location: 'Hotel Due Torri Terrace',
-                description: 'Gather for a welcome toast with us on the Hotel Due Torri Terrace to kick off the celebration!',
+                description: 'Gather for a welcome toast with us on the Hotel Due Torri Terrace to kick off the celebration with small Italian-inspired bites!',
+                dress: 'Smart Casual',
+            },
+            {
+                time: 'Evening',
+                title: 'Free Time',
+                location: 'Maiori',
+                description: 'Continue your exploration of the coast or grab a quick bite of dinner!',
                 dress: 'Smart Casual',
             },
         ],
@@ -96,10 +134,18 @@ const scheduleEvents = [
                 title: 'Breakfast Overlooking the Sea',
                 location: 'Hotel Due Torri',
                 description: 'Start your day with a leisurely breakfast and breathtaking views of the Mediterranean.',
-                dress: 'Casual',
+                dress: 'Smart Casual',
             },
             {
-                time: 'Late Morning',
+                time: '8:30 AM',
+                title: 'Pompeii Tour',
+                location: 'Pompeii',
+                description: 'Guest-paid tours available to Pompeii. Note that this tour and the Lemon Grove tour are occuring at the same time so you cannot go on both unfortunately.',
+                dress: 'Comfortable Walking Attire',
+                optional: true,
+            },
+            {
+                time: '9:00 AM',
                 title: 'Activities',
                 location: 'Maiori & Surrounding Areas',
                 description: 'Lemon Grove Tour, beach time, or shopping for ceramics and linens in the local shops.',
@@ -110,8 +156,8 @@ const scheduleEvents = [
                 time: 'Afternoon',
                 title: 'Day Tours',
                 location: 'Amalfi Coast',
-                description: 'Guest-paid tours available: Positano Tour, Pompeii Tour, or Italian Cooking Class. Contact the wedding planner to reserve your spot.',
-                dress: 'Comfortable',
+                description: 'Guest-paid tours available: Positano Tour or Italian Cooking Class. Contact the wedding planner to reserve your spot. Note: Pompeii tour starts at 8:30am so you cannot do both Pompeii and the Lemon Grove',
+                dress: 'Comfortable Walking Attire',
                 optional: true,
             },
             {
@@ -146,7 +192,7 @@ const scheduleEvents = [
                 title: 'Return to Shore',
                 location: 'Maiori Harbor',
                 description: 'Return from our boat adventure with sun-kissed memories.',
-                dress: 'Resort Casual',
+                dress: 'Resort Casual / Swimwear',
             },
             {
                 time: 'Evening',
@@ -167,14 +213,14 @@ const scheduleEvents = [
                 title: 'Free Day to Explore',
                 location: 'Amalfi Coast',
                 description: 'Enjoy the beauty of the coast! Visit Amalfi Cathedral, explore Positano, or relax at a beach club.',
-                dress: 'Casual',
+                dress: 'Smart Casual',
             },
             {
                 time: '7:00 PM',
-                title: 'Welcome Soirée',
+                title: 'Welcome Soirée Dinner',
                 location: 'Hotel Due Torri, Maiori',
                 description: 'Let the celebrations begin! Please join us for a welcome soirée Italian-style, think sunset views, spritzes in hand, and effortless elegance. Come mingle, unwind, and ease into the weekend as we celebrate with good company, great wine, and la dolce vita.',
-                dress: '"Dolce Vita" Chic - Fun fabrics, vibrant colors, playful accessories!',
+                dress: 'Costal Chic',
             },
         ],
     },
@@ -187,21 +233,21 @@ const scheduleEvents = [
                 title: 'Explore Ravello',
                 location: 'Ravello',
                 description: 'Visit Villa Rufolo gardens, enjoy coffee in Piazza del Duomo, or take panoramic walks through this enchanting hilltop town.',
-                dress: 'Casual',
+                dress: 'Smart Casual',
             },
             {
                 time: 'Afternoon',
                 title: 'Check-in to Villa Cimbrone',
                 location: 'Villa Cimbrone, Ravello',
                 description: 'Check-in to your Ravello Hotel. We will be staying at the wedding venue, Villa Cimbrone. But, there are plenty hotels just a walk away.',
-                dress: 'Casual',
+                dress: 'Smart Casual',
             },
             {
                 time: '6:30 PM',
                 title: 'Rehearsal Dinner',
                 location: 'Trattoria da Lorenzo, Scala',
                 description: 'An intimate dinner for wedding party and close family at one of our favorite restaurants near Ravello.',
-                dress: 'Italian Elegance - Cocktail dresses or tailored suits, no jeans please',
+                dress: '"Dolce Vita" Chic',
             },
         ],
     },
@@ -221,28 +267,28 @@ const scheduleEvents = [
                 title: 'Ceremony',
                 location: 'Garden of Two Fountains, Villa Cimbrone',
                 description: 'Please arrive by 3:30 PM. Our ceremony will be held at the iconic Villa Cimbrone in Ravello—an extraordinary place suspended between sky and sea. With the gardens in bloom and the coast stretching endlessly below, we will say our vows surrounded by beauty, history, and the people we love the most.',
-                dress: 'Black Tie - Long dresses in soft hues for ladies, formal wear for gentlemen',
+                dress: 'Black Tie: Summer Solstice Spectacle',
             },
             {
                 time: '5:00 PM',
                 title: 'Cocktail Hour',
                 location: 'Infinity Terrace, Villa Cimbrone',
                 description: 'Champagne, canapes, and acoustic music while capturing golden hour photos on the famous terrace overlooking the Mediterranean.',
-                dress: 'Black Tie',
+                dress: 'Black Tie: Summer Solstice Spectacle',
             },
             {
                 time: '7:00 PM',
                 title: 'Reception Dinner',
                 location: 'The Crypt, Villa Cimbrone',
                 description: 'A seated dinner in the atmospheric medieval crypt featuring Italian fine dining with elevated local cuisine.',
-                dress: 'Black Tie',
+                dress: 'Black Tie: Summer Solstice Spectacle',
             },
             {
                 time: '10:00 PM',
                 title: 'Dancing Under the Stars',
                 location: 'Garden of Two Fountains, Villa Cimbrone',
                 description: 'Dinner, then dancing under the stars—because what happens in Italia, stays in Italia!',
-                dress: 'Black Tie',
+                dress: 'Black Tie: Summer Solstice Spectacle',
             },
         ],
     },
@@ -309,7 +355,17 @@ const Schedule = () => {
                                             {event.location}
                                         </p>
                                         <p className={styles.eventDescription}>{event.description}</p>
-                                        <span className={styles.dressCode}>Dress: {event.dress}</span>
+                                        {getDressCodeAnchor(event.dress) ? (
+                                            <a
+                                                href={`#${getDressCodeAnchor(event.dress)}`}
+                                                className={styles.dressCode}
+                                                onClick={(e) => handleDressCodeClick(e, getDressCodeAnchor(event.dress))}
+                                            >
+                                                Dress: {event.dress}
+                                            </a>
+                                        ) : (
+                                            <span className={styles.dressCode}>Dress: {event.dress}</span>
+                                        )}
                                     </div>
                                 </div>
                             ))}
