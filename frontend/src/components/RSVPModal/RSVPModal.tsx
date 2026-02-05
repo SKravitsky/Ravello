@@ -317,7 +317,7 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
 
                             <div className={styles.formGroup}>
                                 <label className={styles.label}>
-                                    Will you be attending the boat tour on Saturday, August 29th?
+                                    Will you be attending the boat tour on Friday, August 28th?
                                 </label>
                                 <div className={styles.radioGroup}>
                                     <label className={styles.radioLabel}>
