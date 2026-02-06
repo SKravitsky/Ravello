@@ -71,6 +71,28 @@ const maioriHotels: Hotel[] = [
         image: 'https://www.hotel2torri.com/wp-content/uploads/2019/06/es1.jpg',
         bookingNote: 'This is where we have a wedding block',
         website: 'https://www.hotel2torri.com',
+    },
+        {
+        name: 'Residence Due Torri',
+        category: 'Apartment Residence',
+        description: 'A charming apartment-style residence elevated above the sea with terraced grounds and citrus groves, offering stunning views overlooking the entire Amalfi Coast and the Acqua Chiara valley. Choose from sea view or garden view studios and one-bedroom apartments in this UNESCO heritage setting at the entrance of Maiori.',
+        priceRange: '€€',
+        distance: 'At the entrance of Maiori, short walk to beach',
+        amenities: ['Sea Views', 'Garden Views', 'Terraced Citrus Groves', 'Terraced Grounds', 'Fully Equipped Kitchenettes'],
+        image: 'https://images.trvl-media.com/lodging/5000000/4320000/4316700/4316661/044e7d2c.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill',
+        bookingNote: 'Reach out to Maryla to book here',
+        website: 'https://residenceduetorri.it/en/the-residence/',
+    },
+        {
+        name: 'Al Raggio di Sole in Costiera',
+        category: 'Bed & Breakfast',
+        description: 'A charming, boutique guesthouse in the heart of Maiori just steps from the sea, offering individually styled double rooms with sea or town views. Guests enjoy authentic Italian hospitality, modern comforts like free Wi-Fi and air conditioning, and easy access to local beaches, shops, and ferries along the Amalfi Coast. The property also provides connections to the nearby Torre Normanna Beach Club for a more relaxing seaside experience.',
+        priceRange: '€€',
+        distance: 'Just metres from the sea, 10 min walk to Maiori port',
+        amenities: ['Close to Beach & Seafront', 'Restaurant', 'Easy Access to Torre Normanna Beach Club (via shuttle or arrangement)'],
+        image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/732091873.jpg?k=b6f4a5b2eacbe330c1f0df5b944819786961f2c74de9380bc83f6999fd77983b&o=',
+        bookingNote: null,
+        website: 'https://alraggiodisoleincostiera.it/al-raggio-di-sole-en/',
     }
 ];
 
