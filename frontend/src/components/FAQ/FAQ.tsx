@@ -7,7 +7,7 @@ import styles from './FAQ.module.scss';
 const faqs = [
     {
         question: 'What is the dress code?',
-        answer: 'The wedding ceremony and reception are Black Tie. Ladies: embrace the romance with long dresses in soft hues—consider bringing a shawl for the evening, chunky heels for the garden pathways, and a spare pair of dancing shoes! Gentlemen: formal wear is requested, and an extra collared shirt is not a bad idea as the August sun can be warm. For the Welcome Dinner, think "Dolce Vita" Chic—fun fabrics, vibrant colors, and playful accessories. For the Rehearsal Dinner, Italian Elegance—sophisticated cocktail dresses or tailored suits, no jeans please.',
+        answer: 'The wedding ceremony and reception are Black Tie. Ladies: embrace the romance with long dresses in soft hues—consider bringing a shawl for the evening, chunky heels for the garden pathways, and a spare pair of dancing shoes! Gentlemen: formal wear is requested, and an extra collared shirt is not a bad idea as the August sun can be warm. For the Welcome Dinner, think "Dolce Vita" Chic—fun fabrics, vibrant colors, and playful accessories. For the Rehearsal Dinner, "Dolce Vita" Chic—sophisticated cocktail dresses or tailored suits, no jeans please.',
     },
     {
         question: 'When should I RSVP by?',
@@ -126,18 +126,6 @@ const FAQ = () => {
                         </svg>
                         info@artofperfectionevents.com
                     </a>
-                    {/* <a href="mailto:" className={styles.contactButton}>
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                        >
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                            <polyline points="22,6 12,13 2,6" />
-                        </svg>
-                        Email Us
-                    </a> */}
                 </div>
             </div>
         </Section>

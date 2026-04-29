@@ -116,11 +116,32 @@
 
 .optionalLabel {
     display: block;
+    width: fit-content;
+    margin-left: auto;
+    font-family: vars.$font-secondary;
     font-size: 0.75rem;
-    font-weight: 400;
-    font-style: italic;
-    color: vars.$dark-grey;
-    margin-top: 0.25rem;
+    font-weight: 500;
+    color: vars.$signature-color-dark;
+    background: vars.$signature-color-light;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    margin-top: 0.35rem;
+}
+
+.inviteOnlyLabel {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    font-family: vars.$font-secondary;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #8b2a3a;
+    background: #f9dde1;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    margin-top: 0.35rem;
 }
 
 .eventContent {

@@ -121,8 +121,10 @@ const HotelCard = ({ hotel }: { hotel: Hotel }) => (
                     stroke="currentColor"
                     strokeWidth="2"
                 >
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
+                    <circle cx="12" cy="4" r="1.5" />
+                    <path d="M9 8.5l-1.5 5 2.5 1 1 4" />
+                    <path d="M15 8.5l1.5 5-2.5 1-1 4" />
+                    <path d="M9 8.5h6l-1 4H10l-1-4z" />
                 </svg>
                 {hotel.distance}
             </p>
