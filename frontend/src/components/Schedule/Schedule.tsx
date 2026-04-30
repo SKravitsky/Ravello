@@ -3,11 +3,21 @@
 import Section from '../Section/Section';
 import styles from './Schedule.module.scss';
 
+interface ScheduleEvent {
+    time: string;
+    title: string;
+    location: string;
+    description: string;
+    dress: string;
+    optional?: boolean;
+    inviteOnly?: boolean;
+}
+
 // Map dress code text to attire section anchor IDs
 const getDressCodeAnchor = (dress: string): string => {
     const dressLower = dress.toLowerCase();
     if (dressLower.includes('dolce vita')) return 'dolce-vita-chic';
-    if (dressLower.includes('costal chic')) return 'costal-chic';
+    if (dressLower.includes('coastal chic')) return 'coastal-chic';
     if (dressLower.includes('black tie')) return 'black-tie';
     if (dressLower.includes('resort casual') && dressLower.includes('swimwear')) return 'resort-casual-swimwear';
     if (dressLower.includes('smart casual')) return 'smart-casual';
@@ -90,7 +100,7 @@ const DayIcons: Record<string, React.ReactNode> = {
     ),
 };
 
-const scheduleEvents = [
+const scheduleEvents: { day: string; title: string; events: ScheduleEvent[] }[] = [
     {
         day: 'Wednesday, August 26',
         title: 'Benvenuti in Italia!',
@@ -134,7 +144,7 @@ const scheduleEvents = [
                 title: 'Breakfast Overlooking the Sea',
                 location: 'Hotel Due Torri',
                 description: 'Start your day with a leisurely breakfast and breathtaking views of the Mediterranean.',
-                dress: 'Smart Casual',
+                dress: 'Relaxed',
             },
             {
                 time: '8:30 AM',
@@ -220,7 +230,7 @@ const scheduleEvents = [
                 title: 'Welcome Soirée Dinner',
                 location: 'Hotel Due Torri, Maiori',
                 description: 'Let the celebrations begin! Please join us for a welcome soirée Italian-style, think sunset views, spritzes in hand, and effortless elegance. Come mingle, unwind, and ease into the weekend as we celebrate with good company, great wine, and la dolce vita.',
-                dress: 'Costal Chic',
+                dress: 'Coastal Chic',
             },
         ],
     },
@@ -246,8 +256,9 @@ const scheduleEvents = [
                 time: '6:30 PM',
                 title: 'Rehearsal Dinner',
                 location: 'Trattoria da Lorenzo, Scala',
-                description: 'An intimate dinner for wedding party and close family at one of our favorite restaurants near Ravello.',
+                description: 'By invitation only — for wedding party and immediate family at one of our favorite restaurants near Ravello.',
                 dress: '"Dolce Vita" Chic',
+                inviteOnly: true,
             },
         ],
     },
@@ -338,6 +349,7 @@ const Schedule = () => {
                                     <div className={styles.eventTime}>
                                         {event.time}
                                         {event.optional && <span className={styles.optionalLabel}>Optional</span>}
+                                        {event.inviteOnly && <span className={styles.inviteOnlyLabel}>Invite Only</span>}
                                     </div>
                                     <div className={styles.eventContent}>
                                         <h4 className={styles.eventTitle}>{event.title}</h4>

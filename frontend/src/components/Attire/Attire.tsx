@@ -1,5 +1,17 @@
+'use client';
+import { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import Section from '../Section/Section';
 import styles from './Attire.module.scss';
+
+const menImages = ['/images/man1.png'];
+const womenImages = [
+    '/images/woman1.png',
+    '/images/woman2.png',
+    '/images/woman3.png',
+    '/images/woman4.png',
+    '/images/woman5.png',
+];
 
 const attireGuide = [
     {
@@ -33,8 +45,8 @@ const attireGuide = [
         examples: 'Bold prints, vibrant colors, statement jewelry, vintage-inspired pieces, silk scarves',
     },
     {
-        id: 'costal-chic',
-        name: 'Costal Chic',
+        id: 'coastal-chic',
+        name: 'Coastal Chic',
         description: 'To mirror the stunning colors of the Amalfi Coast, we invite the ladies to wear cocktail or midi-length dresses in shades of Cornflower Blue or Lemon Yellow. For the gentlemen, we envision a sea of relaxed linen suits in light blue, cream, or sand—no ties required. Help us kick off the weekend by dressing like a Mediterranean summer. No jeans or sneakers!',
         examples: 'Cocktail dresses, linen suits, midi-length dress, dress shoes, elegant accessories',
     },
@@ -53,6 +65,40 @@ const attireGuide = [
 ];
 
 const Attire = () => {
+    const [activeCarousel, setActiveCarousel] = useState<'men' | 'women' | null>(null);
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const images = activeCarousel === 'men' ? menImages : womenImages;
+
+    const openCarousel = (type: 'men' | 'women') => {
+        setActiveCarousel(type);
+        setCurrentIndex(0);
+    };
+
+    const closeCarousel = () => {
+        setActiveCarousel(null);
+        setCurrentIndex(0);
+    };
+
+    const prev = useCallback(() => {
+        setCurrentIndex((i) => (i - 1 + images.length) % images.length);
+    }, [images.length]);
+
+    const next = useCallback(() => {
+        setCurrentIndex((i) => (i + 1) % images.length);
+    }, [images.length]);
+
+    useEffect(() => {
+        if (!activeCarousel) return;
+        const handleKey = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') closeCarousel();
+            if (e.key === 'ArrowLeft') prev();
+            if (e.key === 'ArrowRight') next();
+        };
+        window.addEventListener('keydown', handleKey);
+        return () => window.removeEventListener('keydown', handleKey);
+    }, [activeCarousel, prev, next]);
+
     return (
         <Section
             id="attire"
@@ -72,10 +118,71 @@ const Attire = () => {
                             <p className={styles.attireExamples}>
                                 <span className={styles.examplesLabel}>Examples:</span> {attire.examples}
                             </p>
+                            {attire.id === 'black-tie' && (
+                                <div className={styles.exampleButtons}>
+                                    <button
+                                        className={styles.exampleBtn}
+                                        onClick={() => openCarousel('men')}
+                                    >
+                                        Men&apos;s Examples
+                                    </button>
+                                    <button
+                                        className={styles.exampleBtn}
+                                        onClick={() => openCarousel('women')}
+                                    >
+                                        Women&apos;s Examples
+                                    </button>
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>
             </div>
+
+            {activeCarousel && (
+                <div className={styles.carouselOverlay} onClick={closeCarousel}>
+                    <div className={styles.carouselModal} onClick={(e) => e.stopPropagation()}>
+                        <button className={styles.carouselClose} onClick={closeCarousel} aria-label="Close">
+                            &times;
+                        </button>
+                        <h3 className={styles.carouselTitle}>
+                            {activeCarousel === 'men' ? "Men's" : "Women's"} Examples
+                        </h3>
+                        <div className={styles.carouselImageWrapper}>
+                            <Image
+                                src={images[currentIndex]}
+                                alt={`${activeCarousel === 'men' ? "Men's" : "Women's"} attire example ${currentIndex + 1}`}
+                                fill
+                                style={{ objectFit: 'contain' }}
+                                sizes="(max-width: 768px) 90vw, 600px"
+                            />
+                        </div>
+                        {images.length > 1 && (
+                            <>
+                                <button className={styles.carouselPrev} onClick={prev} aria-label="Previous">
+                                    &#8249;
+                                </button>
+                                <button className={styles.carouselNext} onClick={next} aria-label="Next">
+                                    &#8250;
+                                </button>
+                                <div className={styles.carouselDots}>
+                                    {images.map((_, i) => (
+                                        <button
+                                            key={i}
+                                            className={`${styles.dot} ${i === currentIndex ? styles.dotActive : ''}`}
+                                            onClick={() => setCurrentIndex(i)}
+                                            aria-label={`Go to image ${i + 1}`}
+                                        />
+                                    ))}
+                                </div>
+                            </>
+                        )}
+                        <p className={styles.carouselCounter}>
+                            {currentIndex + 1} / {images.length}
+                        </p>
+                    </div>
+                </div>
+            )}
         </Section>
     );
 };
