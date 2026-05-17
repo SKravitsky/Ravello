@@ -6,7 +6,7 @@
     left: 0;
     right: 0;
     height: vars.$header-height;
-    background: rgba(255, 239, 221, 0.15);
+    background: rgba(255, 239, 221, 0.55);
     backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid rgba(218, 218, 218, 0.5);
@@ -39,13 +39,15 @@
 .navLink {
     color: vars.$signature-color-dark;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-family: vars.$font-secondary;
+    font-size: 0.8rem;
     font-weight: 500;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
     transition: color 0.2s, border-color 0.2s;
     white-space: nowrap;
     padding-bottom: 0.25rem;
-    border-bottom: 2px solid transparent;
+    border-bottom: 1px solid transparent;
     cursor: pointer;
 
     &:hover {

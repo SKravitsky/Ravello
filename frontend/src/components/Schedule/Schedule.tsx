@@ -11,6 +11,7 @@ interface ScheduleEvent {
     dress: string;
     optional?: boolean;
     inviteOnly?: boolean;
+    joiningUs?: boolean;
 }
 
 // Map dress code text to attire section anchor IDs
@@ -150,23 +151,16 @@ const scheduleEvents: { day: string; title: string; events: ScheduleEvent[] }[] 
                 time: '8:30 AM',
                 title: 'Pompeii Tour',
                 location: 'Pompeii',
-                description: 'Guest-paid tours available to Pompeii. Note that this tour and the Lemon Grove tour are occuring at the same time so you cannot go on both unfortunately.',
+                description: 'Guest-paid tours available to Pompeii (~€150 per person). Note that this tour and the Lemon Grove tour are occuring at the same time so you cannot go on both unfortunately.',
                 dress: 'Comfortable Walking Attire',
                 optional: true,
-            },
-            {
-                time: '9:00 AM',
-                title: 'Activities',
-                location: 'Maiori & Surrounding Areas',
-                description: 'Lemon Grove Tour, beach time, or shopping for ceramics and linens in the local shops.',
-                dress: 'Comfortable Walking Attire',
-                optional: true,
+                joiningUs: true,
             },
             {
                 time: 'Afternoon',
                 title: 'Day Tours',
                 location: 'Amalfi Coast',
-                description: 'Guest-paid tours available: Positano Tour or Italian Cooking Class. Contact the wedding planner to reserve your spot. Note: Pompeii tour starts at 8:30am so you cannot do both Pompeii and the Lemon Grove',
+                description: 'Guest-paid tours available: Positano Tour or Italian Cooking Class. Contact the wedding planner to reserve your spot.',
                 dress: 'Comfortable Walking Attire',
                 optional: true,
             },
@@ -189,6 +183,7 @@ const scheduleEvents: { day: string; title: string; events: ScheduleEvent[] }[] 
                 location: 'Maiori Harbor',
                 description: 'Board our private boat for an unforgettable day trip to Capri. Seeing the island from the sea is truly magical!',
                 dress: 'Resort Casual / Swimwear',
+                joiningUs: true,
             },
             {
                 time: 'All Day',
@@ -218,6 +213,15 @@ const scheduleEvents: { day: string; title: string; events: ScheduleEvent[] }[] 
         day: 'Saturday, August 29',
         title: 'Welcome Soirée',
         events: [
+            {
+                time: '9:00 AM',
+                title: 'Path of Lemons',
+                location: 'Maiori',
+                description: 'Ancient path that connectss Maiori to Minori that was used by farmers to transport lemons. 2.5 mile hike with 800ft of elevation gain.',
+                dress: 'Comfortable Walking Attire',
+                optional: true,
+                joiningUs: true,
+            },
             {
                 time: 'Daytime',
                 title: 'Free Day to Explore',
@@ -350,6 +354,7 @@ const Schedule = () => {
                                         {event.time}
                                         {event.optional && <span className={styles.optionalLabel}>Optional</span>}
                                         {event.inviteOnly && <span className={styles.inviteOnlyLabel}>Invite Only</span>}
+                                        {event.joiningUs && <span className={styles.joiningUsLabel}>We&apos;re joining!</span>}
                                     </div>
                                     <div className={styles.eventContent}>
                                         <h4 className={styles.eventTitle}>{event.title}</h4>

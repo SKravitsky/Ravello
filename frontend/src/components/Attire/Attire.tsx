@@ -53,7 +53,7 @@ const attireGuide = [
     {
         id: 'black-tie',
         name: 'Black Tie: Summer Solstice Spectacle',
-        description: 'We invite you to celebrate in your finest formal attire. To reflect the vibrant energy of a European summer, we kindly request that women wear floor-length gowns in solid, bold colors. Think sunset oranges, deep magentas, sky blues, and lush greens. We ask that guests refrain from wearing black or patterned fabrics to help us create a cohesive, colorful garden of celebration. Gentlemen, please arrive in a classic tuxedo or formal black suit.',
+        description: 'We invite you to celebrate in your finest formal attire. To reflect the vibrant energy of a European summer, we kindly request that women wear floor-length gowns in solid, bold colors. Think sunset oranges, deep magentas, sky blues, and lush greens. We ask that guests refrain from wearing black dresses or patterned fabrics to help us create a cohesive, colorful garden of celebration. Gentlemen, please arrive in a classic tuxedo or formal black suit.',
         examples: 'Floor-length gowns, tuxedos, dark formal suits, elegant jewelry, formal shoes',
     },
     {
