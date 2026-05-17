@@ -269,10 +269,10 @@
 .contactCard {
     background: vars.$white;
     border: 1px solid vars.$medium-grey;
+    border-left: 3px solid vars.$signature-color-dark;
     border-radius: 12px;
     padding: 2rem;
     margin-top: 1rem;
-    // margin-bottom: 2.5rem;
 }
 
 .contactIntro {

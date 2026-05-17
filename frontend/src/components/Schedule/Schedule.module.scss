@@ -18,7 +18,11 @@
 }
 
 .dayHeader {
-    background: vars.$signature-color-dark;
+    background: linear-gradient(
+        135deg,
+        vars.$signature-color-dark 0%,
+        #1a6080 100%
+    );
     color: vars.$white;
     padding: 1.25rem 1.5rem;
     display: flex;
@@ -138,6 +142,21 @@
     font-weight: 500;
     color: #8b2a3a;
     background: #f9dde1;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    margin-top: 0.35rem;
+}
+
+.joiningUsLabel {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    font-family: vars.$font-secondary;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #2d6a4f;
+    background: #d8f3dc;
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
     letter-spacing: 0.05em;
