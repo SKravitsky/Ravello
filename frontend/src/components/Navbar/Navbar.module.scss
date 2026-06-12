@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use '../../styles/variables' as vars;
 
 .navbar {
@@ -51,7 +52,7 @@
     cursor: pointer;
 
     &:hover {
-        color: lighten(vars.$signature-color-dark, 20%);
+        color: color.adjust(vars.$signature-color-dark, $lightness: 20%);
     }
 
     &.active {
@@ -137,7 +138,7 @@
     right: 0;
     width: 280px;
     max-width: 80vw;
-    height: 100vh;
+    height: 100dvh;
     background: vars.$cream;
     z-index: 1001;
     transform: translateX(100%);
@@ -176,7 +177,7 @@
     cursor: pointer;
 
     &:hover {
-        color: lighten(vars.$signature-color-dark, 20%);
+        color: color.adjust(vars.$signature-color-dark, $lightness: 20%);
     }
 
     &.active {

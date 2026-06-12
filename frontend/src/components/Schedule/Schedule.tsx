@@ -3,6 +3,15 @@
 import Section from '../Section/Section';
 import styles from './Schedule.module.scss';
 
+const getDayTabLabel = (day: string): string => {
+    const [weekday, monthDay] = day.split(', ');
+    const dayNum = monthDay?.split(' ')[1] ?? '';
+    return `${weekday.slice(0, 3)} ${dayNum}`;
+};
+
+const dayAnchor = (day: string): string =>
+    `day-${day.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
+
 interface ScheduleEvent {
     time: string;
     title: string;
@@ -151,7 +160,7 @@ const scheduleEvents: { day: string; title: string; events: ScheduleEvent[] }[] 
                 time: '8:30 AM',
                 title: 'Pompeii Tour',
                 location: 'Pompeii',
-                description: 'Guest-paid tours available to Pompeii (~€150 per person). Note that this tour and the Lemon Grove tour are occuring at the same time so you cannot go on both unfortunately.',
+                description: 'Guest-paid tours available to Pompeii (~€150 per person). Note that this is an all day tour, you will not return in time to do other tours this day',
                 dress: 'Comfortable Walking Attire',
                 optional: true,
                 joiningUs: true,
@@ -215,9 +224,9 @@ const scheduleEvents: { day: string; title: string; events: ScheduleEvent[] }[] 
         events: [
             {
                 time: '9:00 AM',
-                title: 'Path of Lemons',
+                title: 'Sentiero dei Limoni (Path of Lemons)',
                 location: 'Maiori',
-                description: 'Ancient path that connectss Maiori to Minori that was used by farmers to transport lemons. 2.5 mile hike with 800ft of elevation gain.',
+                description: 'Ancient path that connects Maiori to Minori that was used by farmers to transport lemons. 2.5 mile hike with 800ft of elevation gain.',
                 dress: 'Comfortable Walking Attire',
                 optional: true,
                 joiningUs: true,
@@ -330,6 +339,17 @@ const scheduleEvents: { day: string; title: string; events: ScheduleEvent[] }[] 
 ];
 
 const Schedule = () => {
+    const handleDayTabClick = (e: React.MouseEvent<HTMLAnchorElement>, anchor: string) => {
+        e.preventDefault();
+        const element = document.getElementById(anchor);
+        if (element) {
+            const headerOffset = 120;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+        }
+    };
+
     return (
         <Section
             id="schedule"
@@ -337,8 +357,24 @@ const Schedule = () => {
             subtitle="Join us for an Italian celebration"
         >
             <div className={styles.scheduleContainer}>
+                <nav className={styles.dayTabs} aria-label="Jump to a day">
+                    {scheduleEvents.map((day) => {
+                        const anchor = dayAnchor(day.day);
+                        return (
+                            <a
+                                key={anchor}
+                                href={`#${anchor}`}
+                                className={styles.dayTab}
+                                onClick={(e) => handleDayTabClick(e, anchor)}
+                            >
+                                {getDayTabLabel(day.day)}
+                            </a>
+                        );
+                    })}
+                </nav>
+
                 {scheduleEvents.map((day, dayIndex) => (
-                    <div key={dayIndex} className={styles.dayCard}>
+                    <div key={dayIndex} id={dayAnchor(day.day)} className={styles.dayCard}>
                         <div className={styles.dayHeader}>
                             <div className={styles.dayHeaderLeft}>
                                 {DayIcons[day.day]}

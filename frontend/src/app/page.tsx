@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./page.module.scss";
 import RSVPButton from "@/components/RSVPButton/RSVPButton";
 import OurStory from "@/components/OurStory/OurStory";
@@ -15,9 +16,12 @@ export default function Home() {
         <>
             <main id="home" className={styles.hero}>
                 <div className={styles.heroBackground}>
-                    <img
-                        src="https://images.openai.com/static-rsc-3/CsOYiBzUEqL6gxzciKzV8hQmnpvtoAhfC_2QK1qC0AMrkEh8R5tTjc8wae2CYJV9o3Dfu4DepPeN1Geo2SDIxIATJGycN-wRQpEuLARXjcs"
+                    <Image
+                        src="/images/hero.jpg"
                         alt="Villa Cimbrone, Ravello"
+                        fill
+                        priority
+                        sizes="100vw"
                         className={styles.heroImage}
                     />
                     <div className={styles.heroOverlay} />

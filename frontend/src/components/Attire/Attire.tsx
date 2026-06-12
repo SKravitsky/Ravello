@@ -4,14 +4,17 @@ import Image from 'next/image';
 import Section from '../Section/Section';
 import styles from './Attire.module.scss';
 
-const menImages = ['/images/man1.png'];
-const womenImages = [
-    '/images/woman1.png',
-    '/images/woman2.png',
-    '/images/woman3.png',
-    '/images/woman4.png',
-    '/images/woman5.png',
-];
+// To add example photos for an attire category:
+//   1. Drop numbered files into /public/images/attire/<id>/men/  or  /women/  (1.jpg, 2.jpg, …)
+//   2. Bump the matching count below. Use 0 if a gender has no examples.
+const attireExampleCounts: Record<string, { men: number; women: number }> = {
+    'black-tie': { men: 1, women: 5 },
+};
+
+const buildExampleUrls = (attireId: string, gender: 'men' | 'women', count: number): string[] =>
+    Array.from({ length: count }, (_, i) => `/images/attire/${attireId}/${gender}/${i + 1}.jpg`);
+
+type CarouselState = { attireId: string; gender: 'men' | 'women' };
 
 const attireGuide = [
     {
@@ -65,13 +68,23 @@ const attireGuide = [
 ];
 
 const Attire = () => {
-    const [activeCarousel, setActiveCarousel] = useState<'men' | 'women' | null>(null);
+    const [activeCarousel, setActiveCarousel] = useState<CarouselState | null>(null);
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const images = activeCarousel === 'men' ? menImages : womenImages;
+    const images = activeCarousel
+        ? buildExampleUrls(
+            activeCarousel.attireId,
+            activeCarousel.gender,
+            attireExampleCounts[activeCarousel.attireId]?.[activeCarousel.gender] ?? 0,
+          )
+        : [];
 
-    const openCarousel = (type: 'men' | 'women') => {
-        setActiveCarousel(type);
+    const activeAttireName = activeCarousel
+        ? attireGuide.find((a) => a.id === activeCarousel.attireId)?.name ?? ''
+        : '';
+
+    const openCarousel = (attireId: string, gender: 'men' | 'women') => {
+        setActiveCarousel({ attireId, gender });
         setCurrentIndex(0);
     };
 
@@ -111,31 +124,38 @@ const Attire = () => {
                     Here's a guide to help you pack for each event.
                 </p>
                 <div className={styles.attireGrid}>
-                    {attireGuide.map((attire) => (
-                        <div key={attire.id} id={attire.id} className={styles.attireCard}>
-                            <h3 className={styles.attireName}>{attire.name}</h3>
-                            <p className={styles.attireDescription}>{attire.description}</p>
-                            <p className={styles.attireExamples}>
-                                <span className={styles.examplesLabel}>Examples:</span> {attire.examples}
-                            </p>
-                            {attire.id === 'black-tie' && (
-                                <div className={styles.exampleButtons}>
-                                    <button
-                                        className={styles.exampleBtn}
-                                        onClick={() => openCarousel('men')}
-                                    >
-                                        Men&apos;s Examples
-                                    </button>
-                                    <button
-                                        className={styles.exampleBtn}
-                                        onClick={() => openCarousel('women')}
-                                    >
-                                        Women&apos;s Examples
-                                    </button>
-                                </div>
-                            )}
-                        </div>
-                    ))}
+                    {attireGuide.map((attire) => {
+                        const counts = attireExampleCounts[attire.id];
+                        return (
+                            <div key={attire.id} id={attire.id} className={styles.attireCard}>
+                                <h3 className={styles.attireName}>{attire.name}</h3>
+                                <p className={styles.attireDescription}>{attire.description}</p>
+                                <p className={styles.attireExamples}>
+                                    <span className={styles.examplesLabel}>Examples:</span> {attire.examples}
+                                </p>
+                                {counts && (counts.men > 0 || counts.women > 0) && (
+                                    <div className={styles.exampleButtons}>
+                                        {counts.men > 0 && (
+                                            <button
+                                                className={styles.exampleBtn}
+                                                onClick={() => openCarousel(attire.id, 'men')}
+                                            >
+                                                Men&apos;s Examples
+                                            </button>
+                                        )}
+                                        {counts.women > 0 && (
+                                            <button
+                                                className={styles.exampleBtn}
+                                                onClick={() => openCarousel(attire.id, 'women')}
+                                            >
+                                                Women&apos;s Examples
+                                            </button>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
 
@@ -146,12 +166,12 @@ const Attire = () => {
                             &times;
                         </button>
                         <h3 className={styles.carouselTitle}>
-                            {activeCarousel === 'men' ? "Men's" : "Women's"} Examples
+                            {activeAttireName} · {activeCarousel.gender === 'men' ? "Men's" : "Women's"} Examples
                         </h3>
                         <div className={styles.carouselImageWrapper}>
                             <Image
                                 src={images[currentIndex]}
-                                alt={`${activeCarousel === 'men' ? "Men's" : "Women's"} attire example ${currentIndex + 1}`}
+                                alt={`${activeAttireName} ${activeCarousel.gender === 'men' ? "men's" : "women's"} example ${currentIndex + 1}`}
                                 fill
                                 style={{ objectFit: 'contain' }}
                                 sizes="(max-width: 768px) 90vw, 600px"

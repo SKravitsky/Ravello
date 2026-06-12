@@ -70,7 +70,7 @@
 
 .coupleNames {
     font-family: variables.$font-primary;
-    font-size: clamp(3.5rem, 14vw, 8rem);
+    font-size: clamp(2.75rem, 11vw, 8rem);
     font-weight: 300;
     text-transform: none;
     margin: 0;
@@ -217,13 +217,30 @@
 }
 
 .rsvpButton {
-    backdrop-filter: blur(10px);
-    color: variables.$white;
-    padding: 1rem 3rem;
-    font-weight: 500;
+    background: variables.$white;
+    color: variables.$signature-color-dark;
+    border: 2px solid variables.$white;
+    padding: 1.1rem 3.25rem;
+    font-weight: 700;
     letter-spacing: 0.2em;
-    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 
+    &:hover {
+        background: transparent;
+        color: variables.$white;
+        border-color: variables.$white;
+        transform: translateY(-2px);
+        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+    }
+
+    &:active {
+        background: rgba(255, 255, 255, 0.85);
+        color: variables.$signature-color-dark;
+        transform: translateY(0);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    }
 }
 
 /* Scroll Indicator */
