@@ -32,27 +32,33 @@ export default function Navbar() {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    // Track active section on scroll
+    // Track active section via IntersectionObserver (no scroll thrash)
     useEffect(() => {
-        const handleScroll = () => {
-            const sections = navLinks.map(link => link.href.slice(1));
-            const scrollPosition = window.scrollY + 100;
+        const sectionIds = navLinks.map(link => link.href.slice(1));
+        const elements = sectionIds
+            .map(id => document.getElementById(id))
+            .filter((el): el is HTMLElement => el !== null);
 
-            for (const sectionId of sections) {
-                const element = document.getElementById(sectionId);
-                if (element) {
-                    const { offsetTop, offsetHeight } = element;
-                    if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-                        setActiveSection(sectionId);
-                        break;
-                    }
+        if (elements.length === 0) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const visible = entries
+                    .filter(e => e.isIntersecting)
+                    .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+                if (visible[0]) {
+                    setActiveSection(visible[0].target.id);
                 }
+            },
+            {
+                // Trigger when a section's top crosses ~25% down from header
+                rootMargin: '-25% 0px -60% 0px',
+                threshold: [0, 0.25, 0.5, 0.75, 1],
             }
-        };
+        );
 
-        window.addEventListener('scroll', handleScroll);
-        handleScroll();
-        return () => window.removeEventListener('scroll', handleScroll);
+        elements.forEach(el => observer.observe(el));
+        return () => observer.disconnect();
     }, []);
 
     // Prevent body scroll when drawer is open

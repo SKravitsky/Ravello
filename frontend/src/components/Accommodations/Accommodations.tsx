@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Section from '../Section/Section';
 import styles from './Accommodations.module.scss';
 
@@ -21,7 +22,7 @@ const ravelloHotels: Hotel[] = [
         priceRange: '€€€€€',
         distance: 'You are at Villa Cimbrone',
         amenities: ['Historic Gardens', 'Terrace of Infinity', 'Fine Dining', 'Spa', 'Pool', 'Sea Views'],
-        image: 'https://www.hotelvillacimbrone.com/wp-content/uploads/2020/02/Hotel-Villa-Cimbrone-23-1920.jpg',
+        image: '/images/hotels/villa-cimbrone.jpg',
         bookingNote: null,
         website: 'https://www.hotelvillacimbrone.com/',
     },
@@ -32,7 +33,7 @@ const ravelloHotels: Hotel[] = [
         priceRange: '€€€€',
         distance: '5 min walk to Villa Cimbrone',
         amenities: ['Garden', 'Pool', 'Sea Views', 'Private Terraces', 'Breakfast Included'],
-        image: 'https://wi-web-eiw.s3.eu-west-1.amazonaws.com/exclusiveitaly/images/original/90b6765a-fc62-4ed0-b9b5-7d52843c3dfb/villa-eva-01.jpg',
+        image: '/images/hotels/villa-eva.jpg',
         bookingNote: null,
         website: 'https://www.villa-eva.it/',
     },
@@ -43,7 +44,7 @@ const ravelloHotels: Hotel[] = [
         priceRange: '€€€€',
         distance: '10 min walk to Villa Cimbrone',
         amenities: ['Pool', 'Garden', 'Restaurant', 'Terrace', 'Central Location', 'Bar'],
-        image: 'https://www.giordanohotel.it/public/web/gallerie/gf_3wed_clr_0002_16.jpg',
+        image: '/images/hotels/hotel-giordano.jpg',
         bookingNote: null,
         website: 'https://www.giordanohotel.it/',
     },
@@ -54,7 +55,7 @@ const ravelloHotels: Hotel[] = [
         priceRange: '€€€',
         distance: '15 min walk to Villa Cimbrone',
         amenities: ['Sea & Valley Views', 'Historic Cloister Garden', 'Bar & Terrace'],
-        image: 'https://hotelparsifal.it/images//slide/chiostro-home.jpg',
+        image: '/images/hotels/hotel-parsifal.jpg',
         bookingNote: null,
         website: 'https://hotelparsifal.it/en/',
     },
@@ -68,7 +69,7 @@ const maioriHotels: Hotel[] = [
         priceRange: '€€€',
         distance: 'Approx. 3–5 min walk to Maiori Beach and town centre',
         amenities: ['Beach Access', 'Panoramic Sea Views', 'Restaurant', 'Bar', 'Swimming Pool'],
-        image: 'https://www.hotel2torri.com/wp-content/uploads/2019/06/es1.jpg',
+        image: '/images/hotels/hotel-due-torri.jpg',
         bookingNote: 'This is where we have a wedding block',
         website: 'https://www.hotel2torri.com',
     },
@@ -79,7 +80,7 @@ const maioriHotels: Hotel[] = [
         priceRange: '€€',
         distance: 'At the entrance of Maiori, short walk to beach',
         amenities: ['Sea Views', 'Garden Views', 'Terraced Citrus Groves', 'Terraced Grounds', 'Fully Equipped Kitchenettes'],
-        image: 'https://images.trvl-media.com/lodging/5000000/4320000/4316700/4316661/044e7d2c.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill',
+        image: '/images/hotels/residence-due-torri.jpg',
         bookingNote: 'Reach out to Maryla to book here',
         website: 'https://residenceduetorri.it/en/the-residence/',
     },
@@ -90,7 +91,7 @@ const maioriHotels: Hotel[] = [
         priceRange: '€€',
         distance: 'Just metres from the sea, 10 min walk to Maiori port',
         amenities: ['Close to Beach & Seafront', 'Restaurant', 'Easy Access to Torre Normanna Beach Club (via shuttle or arrangement)'],
-        image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/732091873.jpg?k=b6f4a5b2eacbe330c1f0df5b944819786961f2c74de9380bc83f6999fd77983b&o=',
+        image: '/images/hotels/al-raggio-di-sole.jpg',
         bookingNote: null,
         website: 'https://alraggiodisoleincostiera.it/al-raggio-di-sole-en/',
     }
@@ -99,9 +100,11 @@ const maioriHotels: Hotel[] = [
 const HotelCard = ({ hotel }: { hotel: Hotel }) => (
     <div className={styles.hotelCard}>
         <div className={styles.imageWrapper}>
-            <img
+            <Image
                 src={hotel.image}
                 alt={hotel.name}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 992px) 50vw, 33vw"
                 className={styles.hotelImage}
             />
             <span className={styles.category}>{hotel.category}</span>

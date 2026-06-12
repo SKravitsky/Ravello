@@ -8,14 +8,16 @@ import Navbar from "@/components/Navbar/Navbar";
 const fontPrimary = Cormorant_Garamond({
     variable: "--font-primary",
     subsets: ["latin"],
-    weight: ["300", "400", "500", "600", "700"],
+    weight: ["300", "400", "500"],
     style: ["normal", "italic"],
+    display: "swap",
 });
 
 const fontSecondary = Montserrat({
     variable: "--font-secondary",
     subsets: ["latin"],
     weight: ["300", "400", "500", "600"],
+    display: "swap",
 });
 
 export const metadata: Metadata = {

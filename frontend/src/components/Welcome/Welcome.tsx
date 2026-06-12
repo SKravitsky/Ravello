@@ -45,7 +45,7 @@ const Welcome = () => {
                         <span className={styles.plannerCompany}>Art of Perfection Events</span>
                     </div>
                     <a
-                        href="mailto:info@artofperfectionevents.com?subject=Question%20-%20Vika%20%26%20Steven%20Wedding"
+                        href="mailto:info@artofperfectionevents.com?subject=Vika+and+Steven+Wedding+Question"
                         className={styles.contactButton}
                     >
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

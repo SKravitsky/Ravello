@@ -77,17 +77,15 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Add the submitter as a guest
-        const guests = guestCount;
-        const guestWithUser = guestCount + 1;
-        setGuestCount(guestWithUser);
+        // Submitted headcount includes the submitter themselves
+        const totalGuests = (parseInt(guestCount, 10) || 0) + 1;
 
         const formData: Record<string, string> = {
             'form-name': 'rsvp',
             name,
             email,
             attendance,
-            guestCount,
+            guestCount: String(totalGuests),
             attendanceDate,
             dietaryRestrictions,
             songRequest,
@@ -95,13 +93,9 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
             boat,
         };
 
-        // Add guest names to form data
         guestNames.forEach((guestName, index) => {
             formData[`guestName${index + 1}`] = guestName;
         });
-
-        console.log(formData);
-        setGuestCount(guests)
 
         try {
             const response = await fetch('/__forms.html', {
@@ -236,7 +230,7 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
                         <>
                             <div className={styles.formGroup}>
                                 <label htmlFor="guestCount" className={styles.label}>
-                                    Number of Guests
+                                    Number of Guests (Not inclusive of yourself)
                                 </label>
                                 <select
                                     id="guestCount"

@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use '../../styles/variables' as vars;
 
 .button {
@@ -7,19 +8,22 @@
     border: none;
     border-radius: 8px;
     font-size: 1.125rem;
-    font-weight: 500;
+    font-weight: 600;
     font-family: inherit;
     cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-    letter-spacing: 0.05em;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.08em;
+    box-shadow: 0 4px 14px rgba(27, 95, 168, 0.28);
 
     &:hover {
-        background: lighten(vars.$signature-color-dark, 10%);
+        background: color.adjust(vars.$signature-color-dark, $lightness: 10%);
         transform: translateY(-2px);
+        box-shadow: 0 8px 22px rgba(27, 95, 168, 0.38);
     }
 
     &:active {
-        background: darken(vars.$signature-color-dark, 5%);
+        background: color.adjust(vars.$signature-color-dark, $lightness: -5%);
         transform: translateY(0);
+        box-shadow: 0 4px 14px rgba(27, 95, 168, 0.22);
     }
 }

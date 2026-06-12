@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use '@/styles/variables' as vars;
 @use '@/styles/mixins' as mixins;
 
@@ -197,7 +198,7 @@
     background: rgba(vars.$teal, 0.1);
     border: 1px solid vars.$teal;
     border-radius: 8px;
-    color: darken(vars.$teal, 15%);
+    color: color.adjust(vars.$teal, $lightness: -15%);
     font-family: vars.$font-secondary;
     font-size: 1rem;
     margin-top: 1.5rem;
@@ -240,7 +241,7 @@
     z-index: 1;
 
     &:hover:not(:disabled) {
-        background: lighten(vars.$signature-color-dark, 10%);
+        background: color.adjust(vars.$signature-color-dark, $lightness: 10%);
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(vars.$signature-color-dark, 0.3);
     }
@@ -311,9 +312,10 @@
     color: vars.$signature-color-dark;
     text-decoration: none;
     font-family: vars.$font-secondary;
-    font-size: 0.6875rem;
+    font-size: 0.8125rem;
     letter-spacing: 0.05em;
-    padding: 0.625rem 1rem;
+    padding: 0.75rem 1rem;
+    min-height: 44px;
     border: 1px solid vars.$signature-color-light;
     border-radius: 6px;
     transition: all 0.3s ease;

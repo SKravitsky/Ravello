@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Section from '../Section/Section';
 import styles from './ThingsToDo.module.scss';
 
@@ -8,19 +9,19 @@ const activities = [
             {
                 name: 'Villa Cimbrone Gardens',
                 description: 'Explore the stunning gardens where our ceremony will take place. The Terrace of Infinity offers breathtaking views.',
-                image: 'https://www.hotelvillacimbrone.com/wp-content/uploads/2020/02/Hotel-Villa-Cimbrone-23-1920.jpg',
+                image: '/images/hotels/villa-cimbrone.jpg',
                 type: 'Gardens',
             },
             {
                 name: 'Villa Rufolo',
                 description: 'A 13th-century villa with beautiful gardens that inspired Wagner\'s Parsifal. Famous for summer concerts.',
-                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROY6WZAh0hjirpqI1Njq9tWpb4xZLIbr8n8A&s',
+                image: '/images/activities/villa-rufolo.jpg',
                 type: 'Historic Site',
             },
             {
                 name: 'Ravello Duomo',
                 description: 'The 11th-century cathedral in the town center features a beautiful bronze door and museum.',
-                image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/d2/41/2b/duomo-di-ravello.jpg?w=900&h=500&s=1',
+                image: '/images/activities/ravello-duomo.jpg',
                 type: 'Church',
             },
         ],
@@ -31,19 +32,19 @@ const activities = [
             {
                 name: 'Amalfi',
                 description: 'A historic maritime republic with a stunning cathedral, paper museum, and charming streets. Just 20 minutes by bus.',
-                image: 'https://images.unsplash.com/photo-1612698093158-e07ac200d44e?w=500&h=350&fit=crop',
+                image: '/images/activities/amalfi.jpg',
                 type: '20 min',
             },
             {
                 name: 'Positano',
                 description: 'The iconic cliffside village with pastel-colored houses, boutique shopping, and beautiful beaches.',
-                image: 'https://images.unsplash.com/photo-1561956021-947f09ae0101?q=80&w=774&fit=crop',
+                image: '/images/activities/positano.jpg',
                 type: '45 min',
             },
             {
                 name: 'Pompeii',
                 description: 'The ancient Roman city preserved by Vesuvius. An unforgettable day trip for history lovers.',
-                image: 'https://img.lemde.fr/2024/11/08/0/0/2000/1500/664/0/75/0/5f02fa6_1731066031448-pompeii-body-casts-1-credit-archeological-park-of-pompeii.jpg',
+                image: '/images/activities/pompeii.jpg',
                 type: '1.5 hrs',
             },
         ],
@@ -54,19 +55,19 @@ const activities = [
             {
                 name: 'Boat Tour',
                 description: 'See the Amalfi Coast from the sea! Tours include stops for swimming in hidden coves and visits to Capri.',
-                image: 'https://media.tacdn.com/media/attractions-splice-spp-674x446/07/20/4d/30.jpg',
+                image: '/images/activities/boat-tour.jpg',
                 type: 'Must Do',
             },
             {
                 name: 'Limoncello Tasting',
                 description: 'The Amalfi Coast is famous for its lemons. Visit a local producer and learn how limoncello is made.',
-                image: 'https://whiteonricecouple.com/recipe/images/lemon-tree-container-11-550x830-1.jpg',
+                image: '/images/activities/limoncello-tasting.jpg',
                 type: 'Food & Drink',
             },
             {
                 name: 'Cooking Class',
                 description: 'Learn to make fresh pasta, local specialties, and authentic Italian dishes with a local chef.',
-                image: 'https://media.tacdn.com/media/attractions-splice-spp-674x446/0c/df/1e/4b.jpg',
+                image: '/images/activities/cooking-class.jpg',
                 type: 'Experience',
             },
         ],
@@ -89,9 +90,11 @@ const ThingsToDo = () => {
                             {category.items.map((item, itemIndex) => (
                                 <div key={itemIndex} className={styles.activityCard}>
                                     <div className={styles.imageWrapper}>
-                                        <img
+                                        <Image
                                             src={item.image}
                                             alt={item.name}
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, (max-width: 992px) 50vw, 33vw"
                                             className={styles.activityImage}
                                         />
                                         <span className={styles.activityType}>{item.type}</span>
