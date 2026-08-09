@@ -29,6 +29,7 @@ const getDressCodeAnchor = (dress: string): string => {
     if (dressLower.includes('dolce vita')) return 'dolce-vita-chic';
     if (dressLower.includes('coastal chic')) return 'coastal-chic';
     if (dressLower.includes('black tie')) return 'black-tie';
+    if (dressLower.includes('white') && (dressLower.includes('swimwear') || dressLower.includes('boat'))) return 'white-party';
     if (dressLower.includes('resort casual') && dressLower.includes('swimwear')) return 'resort-casual-swimwear';
     if (dressLower.includes('smart casual')) return 'smart-casual';
     if (dressLower.includes('comfortable walking')) return 'comfortable-walking-attire';
@@ -184,14 +185,14 @@ const scheduleEvents: { day: string; title: string; events: ScheduleEvent[] }[] 
     },
     {
         day: 'Friday, August 28',
-        title: 'Private Boat Day to Capri',
+        title: 'White Party Boat Day to Capri',
         events: [
             {
                 time: 'Morning',
                 title: 'Depart for Capri',
                 location: 'Maiori Harbor',
-                description: 'Board our private boat for an unforgettable day trip to Capri. Seeing the island from the sea is truly magical!',
-                dress: 'Resort Casual / Swimwear',
+                description: 'Board our private boat for an unforgettable day trip to Capri. Seeing the island from the sea is truly magical! This is a White Party — please wear your best white boat clothes and swimwear!',
+                dress: 'White Boat Attire / White Swimwear',
                 joiningUs: true,
             },
             {
@@ -199,14 +200,14 @@ const scheduleEvents: { day: string; title: string; events: ScheduleEvent[] }[] 
                 title: 'Boat Day Adventures',
                 location: 'Amalfi Coast to Capri',
                 description: 'Prosecco and antipasti on board, swimming stops in hidden coves, views of the grottos, and the famous Faraglioni di Capri rocks.',
-                dress: 'Resort Casual / Swimwear',
+                dress: 'White Boat Attire / White Swimwear',
             },
             {
                 time: '5:00 PM',
                 title: 'Return to Shore',
                 location: 'Maiori Harbor',
                 description: 'Return from our boat adventure with sun-kissed memories.',
-                dress: 'Resort Casual / Swimwear',
+                dress: 'White Boat Attire / White Swimwear',
             },
             {
                 time: 'Evening',
@@ -322,9 +323,9 @@ const scheduleEvents: { day: string; title: string; events: ScheduleEvent[] }[] 
         events: [
             {
                 time: '11:00 AM',
-                title: 'Farewell Brunch',
+                title: "Farewell Brunch & Viktoryia's Birthday Celebration!",
                 location: 'Villa Maria Restaurant, Ravello',
-                description: 'Please join us for a farewell brunch as we say arrivederci and celebrate one final time together.',
+                description: "Please join us for a farewell brunch as we say arrivederci, celebrate one final time together, and wish Viktoryia a very happy birthday!",
                 dress: 'Smart Casual',
             },
             {

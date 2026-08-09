@@ -10,7 +10,7 @@ const faqGroups: { category: string; items: { question: string; answer: string }
         items: [
             {
                 question: 'What is the dress code?',
-                answer: 'The wedding ceremony and reception are Black Tie. Ladies: embrace the romance with long dresses in soft hues—consider bringing a shawl for the evening, chunky heels for the garden pathways, and a spare pair of dancing shoes! Gentlemen: formal wear is requested, and an extra collared shirt is not a bad idea as the August sun can be warm. For the Welcome Dinner, think "Dolce Vita" Chic—fun fabrics, vibrant colors, and playful accessories. For the Rehearsal Dinner, "Dolce Vita" Chic—sophisticated cocktail dresses or tailored suits, no jeans please.',
+                answer: 'Our wedding ceremony and reception are Black Tie with a colorful twist. To create a vibrant garden celebration, we ask women to wear floor-length gowns in solid, bold colors—think sunset orange, deep magenta, sky blue, or lush green—and to avoid black or patterned dresses. Gentlemen, please wear a classic tuxedo or formal dark suit. A few tips: bring a shawl for the evening breeze, chunky or block heels are wise for the garden pathways, and a spare pair of dancing shoes never hurts! For the Welcome Soirée, the dress code is Coastal Chic—cocktail or midi dresses in cornflower blue or lemon yellow, and relaxed linen suits for the gentlemen. The Rehearsal Dinner (by invitation) is "Dolce Vita" Chic—sophisticated cocktail dresses or tailored suits, no jeans please. See the Attire Guide above for the full week of dress codes.',
             },
             {
                 question: 'Are children welcome?',
