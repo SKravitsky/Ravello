@@ -36,10 +36,10 @@ const attireGuide = [
         examples: 'Walking shoes, breathable fabrics, sun hats, comfortable pants or shorts',
     },
     {
-        id: 'resort-casual-swimwear',
-        name: 'Resort Casual / Swimwear',
-        description: 'Boat day attire! Swimsuits with stylish cover-ups, sandals, and sun protection. If you do not want to go swimming then elegant beachwear, flowy dresses, linen sets, or smart casual with a coastal twist.  Think Mediterranean yacht vibes.',
-        examples: 'Swimsuits, cover-ups, kaftans, linen shirts, sandals, sunglasses',
+        id: 'white-party',
+        name: 'White Party — Boat Day',
+        description: 'It\'s a White Party at sea! Wear your best white boat attire and swimwear—think crisp linens, flowy white cover-ups, and chic white swimsuits. If you\'d rather not swim, elegant white beachwear or a linen set works beautifully. Add sandals, a sun hat, and sunglasses for that Mediterranean yacht look, and bring sun protection and a light layer for the ride home.',
+        examples: 'White swimsuits, white cover-ups, kaftans, linen shirts, sandals, sun hats, sunglasses',
     },
     {
         id: 'dolce-vita-chic',
